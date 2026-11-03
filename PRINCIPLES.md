@@ -84,6 +84,16 @@ Check text in context at relevant viewport sizes, zoom, text-spacing overrides a
 
 No font-independent `34em` cap, single phone screenshot or word-count proxy establishes usability or WCAG conformance. Automated accessibility checks complement manual keyboard, reading-order and task review.
 
+### Diagrams in help pages
+
+When a page includes a figure, edit the figure and its surrounding text together. Start with the question the reader should be able to answer by tracing the drawing. Show the relationship that supplies the answer. For a dependency, draw the connections and show whether every input is required or any one is enough. For a sequence, show its order. Preserve any condition that changes what the reader can conclude. [Google on technical illustrations, S29](SOURCES.md#diagrams)
+
+Use short labels for the inputs, conditions and outcome. Move explanations, examples and troubleshooting into nearby prose. Keep a consequence visible before the action it governs. Give a complex figure a short identifying text alternative and make the relationships and essential details available in text. [W3C WAI on complex images, S30](SOURCES.md#diagrams)
+
+**Worked example.** To explain when a library hold becomes ready for pickup, draw two inputs, “Book returned” and “Hold is first in queue”, converging at **Both required**. Draw an arrow from there to “Staff shelve the book”, then to “Ready for pickup”. Both inputs can be true while the book is still at the desk. Put the explanation of queue positions in the page text.
+
+**House review practice.** Trace the finished figure at desktop and phone widths. Check that each connector meets its target, short labels stay readable, and the final box names the outcome once. If a label wraps with a single dangling word, try shorter wording or a different box width. Keep the facts intact. If you cannot inspect the rendered figure, say which checks remain open.
+
 ## P10. Review meaning before mechanical style
 
 Before finishing, read the text as its intended reader: can they find the point, understand the state and take the right action? Check factual claims and examples, then run the repository's selected lint rules. This sequence is our **house workflow**, motivated by P1–P9. A clean lint result is not evidence of correctness, accessibility or successful comprehension.

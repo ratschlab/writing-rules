@@ -64,3 +64,8 @@ This review recommends Google as the first technical-documentation style to tria
 ## Cognitive accessibility
 
 - **S28. W3C Cognitive and Learning Disabilities Accessibility Task Force, [Making Content Usable for People with Cognitive and Learning Disabilities](https://www.w3.org/TR/coga-usable/) (2021).** Sections 4.3 and 4.4.9 cover organizing related content and separating instructions. Section 5.5.5 describes testing whether people can return to a task after distraction. This Working Group Note supplements WCAG. The example and review questions in P7 adapt that guidance. The Note does not establish a warning-line limit or demonstrate that this guide improves outcomes for people with ADHD.
+
+## Diagrams
+
+- **S29. Google Technical Writing Two, [Illustrating](https://developers.google.com/tech-writing/two/illustrations).** Practitioner guidance on choosing a figure’s purpose, limiting its scope and revising the rendered illustration. The library example and layout checks in P9 are house guidance.
+- **S30. W3C Web Accessibility Initiative, [Complex Images](https://www.w3.org/WAI/tutorials/images/complex/).** Accessibility guidance on pairing a short identification with a text description that conveys the information in a complex image, including relationships. The description can be provided in the surrounding page.
