@@ -48,6 +48,30 @@ Show prerequisites and consequences before the action they govern. Offer optiona
 
 For a destructive action, name the object and effect. Whether confirmation or undo is appropriate depends on the product's risk and recovery model. This writing guide does not change repository approval or security policy.
 
+### Multi-step help and consequential actions
+
+When readers can take different routes, name each route where they choose it. Put an exception beside the step it changes. Separate doing the task from checking its result. Someone returning after an interruption should be able to recognize their current state, identify who acts next, and continue without repeating a consequential action. [W3C cognitive accessibility patterns, S28](SOURCES.md#cognitive-accessibility)
+
+Use emphasis for the control someone needs to find or the consequence that changes their decision. Put that consequence before the action. Keep supporting details in nearby ordinary text. A warning that competes with several other highlighted passages can be hard to find. Inspect the rendered page at phone and desktop widths. Warning length is an editorial choice. [GOV.UK warning text](https://design-system.service.gov.uk/components/warning-text/)
+
+**Worked example.** A booking service accepts new requests and lets people resume saved drafts. Its initial help says, “Start a request or open your draft, select a date, and send it to the coordinator, who will review it. Dates cannot be changed after sending. Pending requests are under My bookings.”
+
+A reader who returns midway can use these instructions:
+
+> **Choose a date**
+>
+> For a new booking, select **New request**. To continue a saved one, open its draft under **My bookings**. Choose the date.
+>
+> **Send for review**
+>
+> You cannot change the date after sending. Check it, then select **Send**.
+>
+> **Check your request**
+>
+> Open **My bookings**. If your request says *Pending*, the coordinator has it for review.
+
+When reviewing a page, ask someone to find their route, explain the consequence in their own words, and pick up the task after a pause. Observe where they look or repeat a step. Use those observations to revise the page. [W3C guidance on testing focus, S28](SOURCES.md#cognitive-accessibility)
+
 ## P8. Describe states accurately and make feedback perceivable
 
 Distinguish loading, empty results, filtered results, errors and completed work. Explain an empty state when its cause or next step is not apparent. Expose qualifying dynamic status messages to assistive technology without unnecessarily moving focus. **Practice/standard:** Carbon's empty-state guidance and WCAG 4.1.3. [S13, S14](SOURCES.md#interface-presentation)
