@@ -1,0 +1,9 @@
+engine: tree-sitter
+scopes:
+  - name: interface
+    expr: |
+      (jsx_text) @prose
+  - name: message
+    expr: |
+      ((call_expression function: (identifier) @_fn arguments: (arguments [(string) (template_string)] @prose))
+        (#match? @_fn "^(toast|setError|alert)$"))

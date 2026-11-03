@@ -1,0 +1,6 @@
+extends: occurrence
+message: Sentence exceeds 30 words.
+level: suggestion
+scope: sentence
+max: 30
+token: "[A-Za-z][A-Za-z'-]*"

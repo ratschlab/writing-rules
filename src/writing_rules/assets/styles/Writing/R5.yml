@@ -1,0 +1,7 @@
+extends: existence
+message: Explain the internal identifier.
+level: error
+scope: text
+nonword: true
+raw:
+  - '(?=[^\n]*[A-Za-z]{2,},? [A-Za-z]{2,},? [A-Za-z]{2,})[^\n]*?\b[a-z]+_[a-z_]+\b'

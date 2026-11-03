@@ -1,0 +1,300 @@
+[
+  [
+    "semicolon_spaced.md",
+    "This is wrong; fix the input.\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "semicolon_unspaced.md",
+    "Stop;retry\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "short_error.md",
+    "Oops\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "short_term.md",
+    "kmer\n",
+    [
+      "R8"
+    ]
+  ],
+  [
+    "clean.md",
+    "Read the file.\n",
+    []
+  ],
+  [
+    "code_fence.md",
+    "```sql\nSELECT * FROM records;\nOops\n```\n",
+    []
+  ],
+  [
+    "inline_code.md",
+    "Use `kmer` in the command.\n",
+    []
+  ],
+  [
+    "note.rst",
+    ".. note:: Stop; retry.\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "warning.rst",
+    ".. warning:: Stop; retry.\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "attention.rst",
+    ".. attention:: Stop; retry.\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "code.rst",
+    ".. code-block:: python\n\n   print('Oops')\n",
+    []
+  ],
+  [
+    "metadata.rst",
+    ".. warning:: Read the file.\n   :class: kmer\n",
+    []
+  ],
+  [
+    "include.cpp",
+    "#include \"kmer/kmer_extractor.hpp\"\nvoid f() { logger->error(\"Oops\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "header.hpp",
+    "void f() { logger->warn(\"Oops\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "debug.cpp",
+    "void f() { logger->debug(\"Oops\"); }\n",
+    []
+  ],
+  [
+    "comment.cpp",
+    "// Oops\nvoid f() {}\n",
+    []
+  ],
+  [
+    "help.cpp",
+    "void f() { fprintf(stderr, \"Count the kmers.\"); }\n",
+    [
+      "R8"
+    ]
+  ],
+  [
+    "exception.cpp",
+    "void f() { throw std::runtime_error(\"Oops\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "cerr.cpp",
+    "void f() { std::cerr << \"Oops\" << std::endl; }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "concat.cpp",
+    "void f() { logger->error(\"something \" \"went wrong\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "concat_newline.cpp",
+    "void f() { logger->error(\"something \"\n \"went wrong\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "escaped.cpp",
+    "void f() { logger->error(\"something\\nwent wrong\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "raw.cpp",
+    "void f() { logger->error(R\"(Oops)\"); }\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "python.py",
+    "raise ValueError(\"Oops\")\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "python_detail.py",
+    "HTTPException(detail=\"Oops\")\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "python_internal.py",
+    "INTERNAL_NAME = \"Oops\"\n",
+    []
+  ],
+  [
+    "python_concat.py",
+    "raise ValueError(\"something \" \"went wrong\")\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "typescript.ts",
+    "setError(\"Oops\");\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "typescript_debug.ts",
+    "console.log(\"Oops\");\n",
+    []
+  ],
+  [
+    "jsx.tsx",
+    "export default () => <p>Oops</p>;\n",
+    [
+      "R4"
+    ]
+  ],
+  [
+    "jsx_attribute.tsx",
+    "export default () => <p className=\"kmer\">Read the file.</p>;\n",
+    []
+  ],
+  [
+    "legacy_allow.md",
+    "<!-- text-rules-allow: R8 kmer the flag name -->\nCount each kmer twice.\n",
+    []
+  ],
+  [
+    "bare_allow.md",
+    "<!-- text-rules-allow: R8 kmer -->\nCount each kmer twice.\n",
+    [
+      "R8"
+    ]
+  ],
+  [
+    "plural_allow.md",
+    "<!-- text-rules-allow: R8 kmer the flag name -->\nCount the kmers twice.\n",
+    [
+      "R8"
+    ]
+  ],
+  [
+    "punctuation_allow.md",
+    "<!-- text-rules-allow: R1 ; published punctuation -->\nStop; retry.\n",
+    []
+  ],
+  [
+    "number.md",
+    "Wait twenty minutes.\n",
+    [
+      "R7"
+    ]
+  ],
+  [
+    "number_not_covered.md",
+    "Wait eleven minutes.\n",
+    []
+  ],
+  [
+    "vague.md",
+    "Return soon.\n",
+    [
+      "R7"
+    ]
+  ],
+  [
+    "jargon.md",
+    "Set min_kmers to 3 in the search form.\n",
+    [
+      "R5"
+    ]
+  ],
+  [
+    "jargon_identifier.md",
+    "min_kmers\n",
+    []
+  ],
+  [
+    "actor.md",
+    "We read the file.\n",
+    [
+      "R9"
+    ]
+  ],
+  [
+    "literal_sql.txt",
+    "SELECT * FROM records;\n",
+    []
+  ],
+  [
+    "native_allow.md",
+    "<!-- Citation punctuation is verbatim. -->\n<!-- vale House.R1 = NO -->\nStop; retry.\n<!-- vale House.R1 = YES -->\n",
+    []
+  ],
+  [
+    "native_allow_no_reason.md",
+    "<!-- vale House.R1 = NO -->\nStop; retry.\n<!-- vale House.R1 = YES -->\n",
+    [
+      "R1"
+    ]
+  ],
+  [
+    "native_allow_rst.rst",
+    ".. vale House.R1 = NO\n\nStop; retry.\n\n.. vale House.R1 = YES\n",
+    []
+  ],
+  [
+    "advisory.md",
+    "The file was written.\n",
+    []
+  ],
+  [
+    "advisory_long.md",
+    "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word.\n",
+    []
+  ],
+  [
+    "unmatched_allow.md",
+    "<!-- text-rules-allow: R8 genome a domain term -->\nCount each kmer twice.\n",
+    [
+      "R8"
+    ]
+  ]
+]

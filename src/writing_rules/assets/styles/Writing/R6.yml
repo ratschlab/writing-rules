@@ -1,0 +1,6 @@
+extends: existence
+message: Check whether an active verb would be clearer.
+level: suggestion
+scope: text
+tokens:
+  - '(is|are|was|were|be|been|being)\s+(\w+ly\s+)?(\w+ed|shown|done|made|given|taken|seen|known|built|kept|sent|set|run|written|found|lost|held|read)'

@@ -1,0 +1,6 @@
+extends: existence
+message: Name the actor instead of '%s'.
+level: error
+scope: text
+tokens:
+  - '(we|We|our|Our|us)'

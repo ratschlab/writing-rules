@@ -1,0 +1,6 @@
+engine: tree-sitter
+scopes:
+  - name: interface
+    expr: |
+      ((call_expression function: (identifier) @_fn arguments: (arguments [(string) (template_string)] @prose))
+        (#match? @_fn "^(toast|setError|alert)$"))

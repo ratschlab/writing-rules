@@ -1,0 +1,12 @@
+extends: existence
+message: Explain the failure and next step instead of '%s'.
+level: error
+scope: text
+ignorecase: true
+tokens:
+  - sorry
+  - oops
+  - whoops
+  - something went wrong
+  - an error occurred
+  - unknown error
