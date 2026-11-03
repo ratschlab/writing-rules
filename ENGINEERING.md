@@ -26,9 +26,9 @@ These agent-specific recommendations are an explicit application of the broader 
 
 Help a reviewer understand the problem, resulting behavior and reason for the approach. Write a specific title that remains useful in search. Give enough context for someone who has not seen the discussion; summarize essential reasoning before linking to it. Update the description when the scope changes. **Practice:** Google's change-description guidance emphasizes what changed, why, and the lasting record. [S20](SOURCES.md#engineering-communication)
 
-**House guidance:** lead with the concrete problem and result. For a bug, a small trigger and before/after example often explains more than a file inventory. Include compatibility, operational risk or migration steps when they affect the review. Describe meaningful manual checks and material limitations; avoid duplicating routine CI status or test counts. A small change can need only a paragraph. Include discarded alternatives only when they explain a material tradeoff. Keep agent conversation history and local scratch artifacts out of the description.
+**House guidance:** lead with the concrete problem and result. For a bug, show the smallest input that triggers it and describe the behavior before and after the fix. Include compatibility, operational risk or migration steps when they affect the review. Describe meaningful manual checks and material limitations; avoid duplicating routine CI status or test counts. A small change can need only a paragraph. Include discarded alternatives only when they explain a material tradeoff. Keep agent conversation history and local scratch artifacts out of the description.
 
-Example: “An interrupted upload leaves a partial file under its final name. Write to a temporary file and rename it after completion, so readers only see complete uploads.” Add atomicity or durability claims only after verifying them for the actual platform.
+Example PR description for a hypothetical parser fix: “An empty line ends the import early. The parser now skips empty lines and continues with the next record.”
 
 ## Reviews and review replies
 
@@ -50,7 +50,7 @@ Make the subject describe the change on its own. In the body, preserve the motiv
 
 ## Bug reports and investigation updates
 
-Before opening an issue, search existing issues and discussions for the same problem and read relevant prior decisions. Use the project's appropriate template and channel. For a feature request, explain the user problem, desired outcome and constraints before proposing an implementation; do not present a preference as a bug. **House workflow**, using the contribution mechanisms documented by GitHub (S26).
+For a suspected vulnerability, read the project's security policy first and use its designated private reporting route. Keep unpublished vulnerability details out of public search queries, issues and comments. For ordinary issues, search for the same problem and read relevant prior decisions before opening a new issue. Use the project's appropriate template and channel. For a feature request, explain the user problem, desired outcome and constraints before proposing an implementation; do not present a preference as a bug. **House workflow**, using the contribution mechanisms documented by GitHub (S26).
 
 Give the smallest useful reproduction, relevant versions and inputs, expected behavior and actual behavior. Keep observations separate from suspected causes. **Practice:** Simon Tatham's reporting guidance centers on enabling someone else to reproduce or diagnose the failure. [S24](SOURCES.md#engineering-communication)
 
