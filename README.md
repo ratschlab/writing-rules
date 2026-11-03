@@ -4,8 +4,14 @@ Use one Vale style package across projects, with local vocabulary and scope.
 The Python runner adds decoded C++/Python diagnostic strings, explained
 exceptions and an optional per-file baseline.
 
-This is an unpublished local candidate. Repository ownership and licensing
-have not been selected. No existing project has adopted this replacement.
+This is an unpublished candidate for `ratschlab/writing-rules`.
+No existing project has adopted this replacement.
+
+## License and authorship
+
+MIT License. Copyright (c) 2026 ETH Zurich. See [LICENSE](LICENSE).
+Created by Oleksandr Kulkov with assistance from Claude and Codex.
+External tools and dependencies retain their own licenses.
 
 ## Requirements
 
