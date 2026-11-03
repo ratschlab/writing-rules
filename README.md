@@ -4,7 +4,7 @@ Use one Vale style package across projects, with local vocabulary and scope.
 The Python runner adds decoded C++/Python diagnostic strings, explained
 exceptions and an optional per-file baseline.
 
-This is an unpublished candidate for `ratschlab/writing-rules`.
+This is an experimental package intended for `ratschlab/writing-rules`.
 No existing project has adopted this replacement.
 
 ## License and authorship
