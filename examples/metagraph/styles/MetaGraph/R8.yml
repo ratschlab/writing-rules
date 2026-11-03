@@ -5,4 +5,5 @@ scope: text
 ignorecase: false
 nonword: true
 swap:
-  '(?<![\w-])(?:kmer|kmers|K-mer|K-mers)(?![\w-])': k-mer
+  '(?<![\w-])(?:kmer|K-mer)(?![\w-])': k-mer
+  '(?<![\w-])(?:kmers|K-mers)(?![\w-])': k-mers
