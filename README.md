@@ -14,8 +14,10 @@ Start with [citation-based principles](PRINCIPLES.md), their
 The [28-rule review](REVIEW.md) separates general principles from local choices.
 The linter checks selected surface patterns; it does not certify writing quality.
 
-For PRs, reviews, commits, bug reports and release notes, use the relevant
-section of [engineering communication](ENGINEERING.md).
+For agent replies, contributions, PRs, reviews, commits, issues and release notes,
+use the relevant section of [engineering communication](ENGINEERING.md).
+Our [selection criteria](SOURCES.md#how-recommendations-are-selected) distinguish
+empirical findings, standards, established practice and house guidance.
 
 ## License and authorship
 

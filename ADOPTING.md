@@ -17,8 +17,9 @@ Write for the reader's task. Preserve facts, uncertainty and necessary detail.
 Treat length and wording warnings as review prompts, not reasons to change meaning.
 Check changed UI text in context and run the documented text check.
 Our local terminology and development/approval instructions take precedence.
-Before drafting PRs, reviews or commit messages, read the relevant section of
+Before preparing contributions, issues, reviews or commit messages, read the relevant section of
 `docs/writing/ENGINEERING.md`.
+Check the receiving project's contribution requirements before submission.
 ```
 
 This is an explicit read instruction. A URL alone does not ensure that an agent has loaded the linked text. Include a source revision and paths in the snapshot record, and check loading in the actual agent environment.
