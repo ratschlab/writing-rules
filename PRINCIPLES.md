@@ -10,9 +10,13 @@ Start with the result, question or action that matters in this context. Retain p
 
 For example, a short diagnostic can say “Output could not be saved. Choose a writable directory with `--output`.” A tutorial also needs a working command and an explanation of the expected output. A proof can need several paragraphs of connected reasoning.
 
+Weinreich et al.'s longitudinal web-use study also supports scan-friendly presentation while documenting variation between readers and sites. Do not infer a universal reading percentage. [S19](SOURCES.md#research)
+
 ## P2. Organize documentation around the reader's need
 
 Distinguish learning a workflow, completing a task, looking up a contract, and understanding a concept. Link these forms instead of making every page do all four jobs. **Practice:** Diátaxis provides this tutorial/how-to/reference/explanation framework. It is a design framework, not a controlled comparison proving one mandatory site layout. [S3](SOURCES.md#documentation-and-language)
+
+**Research:** Carroll et al.'s *The Minimal Manual* supports task-oriented learning and recovery support in its word-processing experiments. It motivates actionable tutorials, not removing conceptual explanations or complete reference material. [S18](SOURCES.md#research)
 
 ## P3. Use precise, familiar language
 
