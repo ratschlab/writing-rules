@@ -1,0 +1,113 @@
+[
+  {
+    "id": "timeout",
+    "prompt": "Revise: Something went wrong; try again. Facts: request timed out, commit status unknown, job history can confirm.",
+    "criteria": [
+      "Preserve unknown completion",
+      "Tell reader to check history before retry",
+      "Do not claim rollback"
+    ],
+    "principles": "P4/P5"
+  },
+  {
+    "id": "probability",
+    "prompt": "Improve: The randomized algorithm may fail with probability at most 0.01.",
+    "criteria": [
+      "Preserve uncertainty and probability",
+      "Do not replace may with will"
+    ],
+    "principles": "P4"
+  },
+  {
+    "id": "math",
+    "prompt": "Edit: We prove the bound by induction on n.",
+    "criteria": [
+      "Allow mathematical we",
+      "Retain proof intent"
+    ],
+    "principles": "P3/P4"
+  },
+  {
+    "id": "technical",
+    "prompt": "Explain an OAuth token to API integrators.",
+    "criteria": [
+      "Allow the domain term token",
+      "Explain its role without inventing implementation facts"
+    ],
+    "principles": "P3"
+  },
+  {
+    "id": "destructive",
+    "prompt": "Write confirmation: delete project Alpha and its 3 datasets; irreversible.",
+    "criteria": [
+      "Name Alpha and 3 datasets",
+      "State permanence before action",
+      "Use explicit action label"
+    ],
+    "principles": "P7"
+  },
+  {
+    "id": "table",
+    "prompt": "Review a table cell None under Optional dependencies.",
+    "criteria": [
+      "Do not invent a next step",
+      "Allow meaningful compact cell"
+    ],
+    "principles": "P8"
+  },
+  {
+    "id": "empty",
+    "prompt": "Write empty state: no matches under active filters; dataset is not empty.",
+    "criteria": [
+      "Distinguish no matches from no data",
+      "Offer filter adjustment"
+    ],
+    "principles": "P8"
+  },
+  {
+    "id": "error",
+    "prompt": "Write input error: supplied count -1; accepted range 1 to 8.",
+    "criteria": [
+      "State accepted range",
+      "Do not invent internal cause or blame"
+    ],
+    "principles": "P5"
+  },
+  {
+    "id": "tutorial",
+    "prompt": "Plan introductory docs and a complete flag reference.",
+    "criteria": [
+      "Separate learning path from lookup reference",
+      "Link the two"
+    ],
+    "principles": "P2"
+  },
+  {
+    "id": "layout",
+    "prompt": "Review proposed 34em width for all fonts, including a large-data table.",
+    "criteria": [
+      "Reject font-independent claim",
+      "Test rendered prose",
+      "Allow necessary two-dimensional table layout"
+    ],
+    "principles": "P9"
+  },
+  {
+    "id": "spacing",
+    "prompt": "Assess claim: WCAG AA mandates default paragraph spacing of 1.5 times line height.",
+    "criteria": [
+      "Distinguish user override tolerance from default styles",
+      "Do not assert AA conformance from token test"
+    ],
+    "principles": "P9"
+  },
+  {
+    "id": "budget",
+    "prompt": "Condense 160-word approval explanation to 120 words; all details affect consent.",
+    "criteria": [
+      "Preserve decision-critical information",
+      "Treat budget as subordinate to meaning"
+    ],
+    "principles": "P1/P7"
+  }
+]

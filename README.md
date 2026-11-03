@@ -7,6 +7,13 @@ exceptions and an optional per-file baseline.
 This is an experimental package intended for `ratschlab/writing-rules`.
 No existing project has adopted this replacement.
 
+## Guidance and adoption
+
+Start with [citation-based principles](PRINCIPLES.md), their
+[sources and limitations](SOURCES.md), and [agent integration](ADOPTING.md).
+The [28-rule review](REVIEW.md) separates general principles from local choices.
+The linter checks selected surface patterns; it does not certify writing quality.
+
 ## License and authorship
 
 MIT License. Copyright (c) 2026 ETH Zurich. See [LICENSE](LICENSE).
@@ -45,7 +52,9 @@ Packages = path/to/WritingRules.zip
 Run `vale sync --no-global` from the consumer root. A published version should
 use a pinned release URL. A local style adds project terms, as demonstrated
 by `examples/metagraph/styles/MetaGraph/R8.yml`. Local configuration can turn
-rules on or off and set their levels. R5 and R9 are off unless a project enables them.
+rules on or off and set their levels. R1, R4, R5, R7 and R9 are off unless a project enables them.
+R2 and R6 remain advisory. Existing consumers must explicitly enable their
+house checks when upgrading.
 
 `writing-rules.json` names the tracked files to scan. See the MetaGraph example.
 Run from the consumer's environment, where `vale` and `rst2html` are on PATH:
@@ -111,7 +120,6 @@ VALE=/path/to/vale python -m unittest discover -s tests -v
 
 The suite includes source extraction, exact exception boundaries, suppression
 rejection, baseline transitions, package installation, local overrides, and
-48 named integration fixtures. Historical baseline-test fixtures are retained
-under tests. See GUIDE.md for automatic versus manual review responsibilities.
+48 named integration fixtures. Baseline transition cases are retained in the test suite. See GUIDE.md for automatic versus manual review responsibilities.
 
 Prepared with Codex. This draft has not received human review.

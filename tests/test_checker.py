@@ -94,6 +94,18 @@ class Baseline(unittest.TestCase):
 
 
 class Integration(unittest.TestCase):
+    def test_default_preserves_uncertainty_and_punctuation(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            export_package(root/'WritingRules.zip')
+            config = root/'.vale.ini'
+            config.write_text('StylesPath = styles\nPackages = '+str(root/'WritingRules.zip')+'\n')
+            run = subprocess.run([VALE, 'sync', '--no-global'], cwd=root, text=True, capture_output=True)
+            self.assertEqual(run.returncode, 0, run.stdout+run.stderr)
+            (root/'uncertainty.md').write_text('The operation may have completed; check its status.\n')
+            alerts, _ = scan(root, ['uncertainty.md'], {}, VALE, config)
+            self.assertFalse([a for a in alerts.get('uncertainty.md', []) if a['Severity']=='error'])
+
     def test_fixture_suite_and_package_overrides(self):
         cases=json.loads((PROJECT/'tests/cases.json').read_text())
         with tempfile.TemporaryDirectory() as temp:
@@ -106,6 +118,9 @@ class Integration(unittest.TestCase):
             config=root/'.vale.ini'
             config.write_text('StylesPath = styles\nPackages = '+str(root/'WritingRules.zip')+'\n'
                               '[*.{md,rst,txt}]\nBasedOnStyles = MetaGraph\n'
+                              'Writing.R1 = YES\nWriting.R4 = YES\nWriting.R7 = YES\n'
+                              '[*.ts]\nWriting.R1 = YES\nWriting.R4 = YES\nWriting.R7 = YES\n'
+                              '[*.tsx]\nWriting.R1 = YES\nWriting.R4 = YES\nWriting.R7 = YES\n'
                               '[*jargon*.md]\nWriting.R5 = YES\n[*actor.md]\nWriting.R9 = YES\n')
             p=subprocess.run([VALE,'sync','--no-global'],cwd=root,text=True,capture_output=True)
             self.assertEqual(p.returncode,0,p.stdout+p.stderr)

@@ -1,6 +1,8 @@
-# Writing for people
+# Mechanical checks and house styles
 
-Projects adopt the applicable rules and keep their domain vocabulary locally.
+Read [PRINCIPLES.md](PRINCIPLES.md) for citation-based guidance and
+[REVIEW.md](REVIEW.md) for the reassessment of the inherited rules.
+Projects select the applicable mechanical checks and keep domain vocabulary locally.
 These rules guide prose, user-facing messages, PR descriptions and reviews.
 The linter only checks files selected by the consumer. It does not automatically
 lint GitHub discussions or certify factual correctness.
@@ -14,12 +16,12 @@ Numbers, defaults and promises must agree with the implementation.
 
 | Rule | Check | Default level |
 |---|---|---|
-| R1 | Semicolons in prose | Error |
+| R1 | Semicolons in prose | Disabled, project opt-in |
 | R2 | Sentences longer than 30 words | Suggestion |
-| R4 | Vague failure/apology phrases | Error |
+| R4 | Vague failure/apology phrases | Disabled, project opt-in |
 | R5 | Snake-case jargon in prose | Disabled, project opt-in |
 | R6 | Passive-voice heuristic | Suggestion |
-| R7 | Vague timing/modal terms and selected written numbers before units | Error |
+| R7 | Vague timing/modal terms and selected written numbers before units | Disabled, project opt-in |
 | R8 | Project terminology | Supplied by each project |
 | R9 | Unnamed first-person plural | Disabled, project opt-in |
 
