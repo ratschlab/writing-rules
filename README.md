@@ -14,6 +14,9 @@ Start with [citation-based principles](PRINCIPLES.md), their
 The [28-rule review](REVIEW.md) separates general principles from local choices.
 The linter checks selected surface patterns; it does not certify writing quality.
 
+For PRs, reviews, commits, bug reports and release notes, use the relevant
+section of [engineering communication](ENGINEERING.md).
+
 ## License and authorship
 
 MIT License. Copyright (c) 2026 ETH Zurich. See [LICENSE](LICENSE).

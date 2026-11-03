@@ -17,6 +17,8 @@ Write for the reader's task. Preserve facts, uncertainty and necessary detail.
 Treat length and wording warnings as review prompts, not reasons to change meaning.
 Check changed UI text in context and run the documented text check.
 Our local terminology and development/approval instructions take precedence.
+Before drafting PRs, reviews or commit messages, read the relevant section of
+`docs/writing/ENGINEERING.md`.
 ```
 
 This is an explicit read instruction. A URL alone does not ensure that an agent has loaded the linked text. Include a source revision and paths in the snapshot record, and check loading in the actual agent environment.
@@ -54,3 +56,7 @@ The [evaluation cases](evals/writing.json) are a proposed rubric, not measured a
 | Legal/privacy notices | Clear structure and truthful scope | Jurisdiction-specific review; no automatic modal-verb or defined-term rewrites. |
 
 These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local. Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [SOURCES.md](SOURCES.md#existing-implementations) records the existing ecosystem.
+
+For engineering communication, also snapshot [ENGINEERING.md](ENGINEERING.md)
+and route to its relevant section from the local entry point. Keep full guides
+out of always-loaded instructions; load them when the corresponding task arises.
