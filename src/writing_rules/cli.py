@@ -10,7 +10,7 @@ import zipfile
 
 from .exceptions import declarations, permitted
 from .ratchet import compare, counts
-from .sources import cpp_units, python_units
+from .sources import cpp_units, python_docstrings, python_units
 
 VALE_VERSION = 'vale version 3.26.0'
 
@@ -51,6 +51,13 @@ def scan(root, files, config, vale, vale_config):
                         'Message': 'Tree-sitter recovered syntax here. Review source-string coverage.', 'Match': ''})
             elif suffix == '.py':
                 units = python_units(source, options.get('python'))
+                if options.get('python', {}).get('docstrings') == 'public':
+                    docstrings = python_docstrings(source)
+                    if docstrings is not None:
+                        target = scratch / (file + '.rst')
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_text(docstrings, encoding='utf8')
+                        origins[str(target)] = (file, None)
             else:
                 units = None
             if units is not None:

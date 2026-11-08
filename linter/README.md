@@ -80,11 +80,16 @@ Raw Vale remains useful for editor suggestions, but the runner is the CI gate.
 ## Source coverage
 
 C++ extraction uses Tree-sitter. It selects logger error/warning/critical
-arguments, stderr output and thrown-call strings. A consumer can opt selected
+arguments, stderr output and thrown-call strings. Stderr output covers
+`std::cerr`, `fprintf(stderr, ...)` and `std::fprintf(stderr, ...)`. A consumer can opt selected
 files into all-string scanning. Adjacent literals, escapes and raw strings are
 decoded before linting. Python uses its standard AST for configured calls and
 keywords. Source findings point to the message's starting line, not an exact
 character span within a concatenated message.
+
+Set `"docstrings": "public"` under `source.python` to check public docstrings too.
+These are the docstrings of the module and of its classes, functions and methods whose names don't start with `_`.
+Vale reads them as reStructuredText at their source lines, so literals and doctest blocks are skipped.
 
 Markdown and RST use Vale's parsers. TS/TSX Views are included as starting
 profiles for toast/setError/alert and JSX text. They have fixture coverage,

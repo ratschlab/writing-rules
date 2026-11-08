@@ -1,5 +1,6 @@
 """Extract and decode user-facing source strings; Vale handles prose matching."""
 import ast
+import inspect
 from dataclasses import dataclass
 import re
 
@@ -58,7 +59,7 @@ def cpp_units(source, options=None, diagnostics=None):
                 fn = parent.child_by_field_name('function')
                 name = data[fn.start_byte:fn.end_byte].decode('utf8') if fn else ''
                 selected = bool(re.search(r'(?:->|\.)(?:error|warn|critical)$', name))
-                if name == 'fprintf':
+                if name in ('fprintf', 'std::fprintf'):
                     args = parent.child_by_field_name('arguments')
                     first = args.named_children[0] if args.named_children else None
                     selected = first is not None and data[first.start_byte:first.end_byte] == b'stderr'
@@ -106,3 +107,30 @@ def python_units(source, options=None):
             if text is not None:
                 result.append(Unit(candidate.lineno, text))
     return result
+
+
+def python_docstrings(source):
+    """Return reStructuredText with the public docstrings at their source lines, or None."""
+    tree = ast.parse(source)
+    nodes = [tree]
+    for node in tree.body:
+        if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)) and not node.name.startswith('_'):
+            nodes.append(node)
+            if isinstance(node, ast.ClassDef):
+                nodes += [m for m in node.body if isinstance(m, (ast.FunctionDef, ast.AsyncFunctionDef))
+                          and not m.name.startswith('_')]
+    lines = [''] * len(source.splitlines())
+    found = False
+    for node in nodes:
+        first = node.body[0] if node.body else None
+        if not (isinstance(first, ast.Expr) and isinstance(first.value, ast.Constant)
+                and isinstance(first.value.value, str)):
+            continue
+        raw = first.value.value.split('\n')
+        offset = next((i for i, text in enumerate(raw) if text.strip()), len(raw))
+        for i, text in enumerate(inspect.cleandoc(first.value.value).split('\n')):
+            line = first.lineno - 1 + offset + i
+            if line < len(lines):
+                lines[line] = text
+                found = True
+    return '\n'.join(lines) + '\n' if found else None

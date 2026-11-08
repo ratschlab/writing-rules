@@ -12,7 +12,7 @@ from types import SimpleNamespace
 from writing_rules.cli import export_package, scan, main
 from writing_rules.exceptions import declarations, permitted
 from writing_rules.ratchet import compare
-from writing_rules.sources import cpp_units, python_units
+from writing_rules.sources import cpp_units, python_docstrings, python_units
 
 PROJECT = Path(__file__).resolve().parents[1]
 VALE = os.environ.get('VALE', 'vale')
@@ -39,6 +39,30 @@ class Sources(unittest.TestCase):
     def test_python_join_and_interpolation(self):
         self.assertEqual(python_units('raise ValueError("something " "went wrong")')[0].text, 'something went wrong')
         self.assertEqual(python_units('raise ValueError(f"Missing {name}")')[0].text, 'Missing X')
+
+    def test_cpp_std_fprintf_stderr(self):
+        source = 'void f() { std::fprintf(stderr, "Oops"); std::fprintf(out, "Fine"); }'
+        self.assertEqual([u.text for u in cpp_units(source)], ['Oops'])
+
+    def test_python_public_docstrings_keep_lines(self):
+        source = ('"""Module text."""\n'
+                  'class A:\n'
+                  '    """\n'
+                  '    Class text.\n'
+                  '\n'
+                  '        Indented.\n'
+                  '    """\n'
+                  '    def run(self):\n'
+                  '        """Method text."""\n'
+                  '    def _hidden(self):\n'
+                  '        """Hidden text."""\n'
+                  'def _private():\n'
+                  '    """Private text."""\n')
+        lines = python_docstrings(source).split('\n')
+        self.assertEqual(len(lines), len(source.split('\n')))
+        self.assertEqual({i + 1: t for i, t in enumerate(lines) if t},
+                         {1: 'Module text.', 4: 'Class text.', 6: '    Indented.', 9: 'Method text.'})
+        self.assertIsNone(python_docstrings('def _f():\n    """Private."""\n'))
 
     def test_cpp_scope(self):
         source = '#include "kmer/a.hpp"\n// Oops\nvoid f() { logger->debug("Oops"); logger->warn("Oops"); }'
@@ -105,6 +129,24 @@ class Integration(unittest.TestCase):
             (root/'uncertainty.md').write_text('The operation may have completed; check its status.\n')
             alerts, _ = scan(root, ['uncertainty.md'], {}, VALE, config)
             self.assertFalse([a for a in alerts.get('uncertainty.md', []) if a['Severity']=='error'])
+
+    def test_python_docstrings_are_checked_as_rst(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            export_package(root/'WritingRules.zip')
+            config = root/'.vale.ini'
+            config.write_text('StylesPath = styles\nPackages = '+str(root/'WritingRules.zip')+'\n'
+                              '[*.{md,rst,txt}]\nWriting.R1 = YES\n')
+            run = subprocess.run([VALE, 'sync', '--no-global'], cwd=root, text=True, capture_output=True)
+            self.assertEqual(run.returncode, 0, run.stdout+run.stderr)
+            (root/'m.py').write_text('def f():\n    """Run it; then stop.\n\n    Use ``a;b`` here.\n    """\n'
+                                     '    raise ValueError("Bad; fix it")\n')
+            options = {'source': {'python': {'calls': ['ValueError']}}}
+            alerts, _ = scan(root, ['m.py'], options, VALE, config)
+            self.assertEqual([a['Line'] for a in alerts['m.py']], [6])
+            options['source']['python']['docstrings'] = 'public'
+            alerts, _ = scan(root, ['m.py'], options, VALE, config)
+            self.assertEqual(sorted(a['Line'] for a in alerts['m.py'] if a['Check'] == 'Writing.R1'), [2, 6])
 
     def test_fixture_suite_and_package_overrides(self):
         cases=json.loads((PROJECT/'tests/cases.json').read_text())
