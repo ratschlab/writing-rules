@@ -11,6 +11,8 @@ No existing project has adopted this replacement.
 
 Start with [citation-based principles](PRINCIPLES.md), their
 [sources and limitations](SOURCES.md), and [agent integration](ADOPTING.md).
+For text meant to teach, such as algorithm articles, use the
+[teaching principles](TEACHING.md).
 The [28-rule review](REVIEW.md) separates general principles from local choices.
 The linter checks selected surface patterns; it does not certify writing quality.
 
