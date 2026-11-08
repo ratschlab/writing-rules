@@ -13,6 +13,8 @@ Start with [citation-based principles](PRINCIPLES.md), their
 [sources and limitations](SOURCES.md), and [agent integration](ADOPTING.md).
 For text meant to teach, such as algorithm articles, use the
 [teaching principles](TEACHING.md).
+To decide what a project should add, keep and remove, use the
+[stewardship principles](STEWARDSHIP.md).
 The [28-rule review](REVIEW.md) separates general principles from local choices.
 The linter checks selected surface patterns; it does not certify writing quality.
 
