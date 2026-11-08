@@ -1,6 +1,6 @@
 # Mechanical checks and house styles
 
-Read [PRINCIPLES.md](PRINCIPLES.md) for citation-based guidance and
+Read [PRINCIPLES.md](../guides/PRINCIPLES.md) for citation-based guidance and
 [REVIEW.md](REVIEW.md) for the reassessment of the inherited rules.
 Projects select the applicable mechanical checks and keep domain vocabulary locally.
 These rules guide prose, user-facing messages, PR descriptions and reviews.
@@ -24,6 +24,10 @@ Numbers, defaults and promises must agree with the implementation.
 | R7 | Vague timing/modal terms and selected written numbers before units | Disabled, project opt-in |
 | R8 | Project terminology | Supplied by each project |
 | R9 | Unnamed first-person plural | Disabled, project opt-in |
+
+These are linter check IDs. Vale reports them as `Writing.R1` to `Writing.R9`.
+They reuse the numbers of the inherited rules in [REVIEW.md](REVIEW.md).
+The guides use P, E, D and S IDs instead.
 
 R7's terms are `may`, `might`, `soon`, `shortly`, `a while` and `eventually`.
 Its number list is two through ten, twelve, twenty, thirty and sixty.

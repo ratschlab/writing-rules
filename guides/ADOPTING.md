@@ -1,6 +1,6 @@
 # Adopting the guide for people and agents
 
-Start with [PRINCIPLES.md](PRINCIPLES.md). It is the human-readable source of guidance. [GUIDE.md](GUIDE.md) describes the lint contract, and [REVIEW.md](REVIEW.md) explains changes to inherited rules. A repository selects its audience, vocabulary and house style explicitly. Adoption does not import another repository's approval, security or release policy.
+Start with the guide that fits the task. [PRINCIPLES.md](PRINCIPLES.md) covers documentation and interface text. [ENGINEERING.md](ENGINEERING.md) covers pull requests, reviews, commit messages and issues. [TEACHING.md](TEACHING.md) covers text meant to teach. [STEWARDSHIP.md](STEWARDSHIP.md) covers what a project adds, keeps and removes. The optional [linter](../linter/README.md) checks a few surface patterns. A repository selects its audience, vocabulary and house style explicitly. Adoption does not import another repository's approval, security or release policy.
 
 ## A small entry point
 
@@ -18,6 +18,8 @@ Treat length and wording warnings as review prompts, not reasons to change meani
 Check changed UI text in context and run the documented text check.
 For tutorials, articles and other text meant to teach, also read
 `docs/writing/TEACHING.md`.
+Before proposing a new feature, option, flag, endpoint or API field, read
+`docs/writing/STEWARDSHIP.md`.
 Our local terminology and development/approval instructions take precedence.
 Before preparing contributions, issues, reviews or commit messages, read the relevant section of
 `docs/writing/ENGINEERING.md`.
@@ -47,7 +49,7 @@ Their tasks, metrics and settings differ; none evaluates this writing guide. Do 
 
 Compare three conditions on the same frozen tasks and facts: existing project instructions, the short entry point plus principles, and an optional skill. Keep model/harness, tools and sampling settings fixed, repeat runs, and randomize output order for reviewers. Score factual preservation and missing decision-critical information first, then actionability, audience fit, accessibility and concision. Record cost/time and which guidance was loaded. Do not use fewer words or a clean Vale result as the sole success metric. OpenAI's [skill evaluation guidance](https://developers.openai.com/blog/eval-skills) motivates repeatable task-based evaluation.
 
-The [evaluation cases](evals/writing.json) are a proposed rubric, not measured agent results. A model comparison has not been run for this revision.
+No such comparison has been run for these guides.
 
 ## Project profiles
 
@@ -58,8 +60,9 @@ The [evaluation cases](evals/writing.json) are a proposed rubric, not measured a
 | Mathematical exposition / cp-algorithms | P1–P4, P6, P10 | Preserve proofs, notation and legitimate “we”/“may”; evaluate Markdown extensions. |
 | Legal/privacy notices | Clear structure and truthful scope | Jurisdiction-specific review; no automatic modal-verb or defined-term rewrites. |
 
-These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local. Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [SOURCES.md](SOURCES.md#existing-implementations) records the existing ecosystem.
+These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local. Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [the source list](../sources/writing.md#existing-implementations) records the existing ecosystem.
 
 For engineering communication, also snapshot [ENGINEERING.md](ENGINEERING.md)
-and route to its relevant section from the local entry point. Keep full guides
+and route to its relevant section from the local entry point. Do the same with
+[STEWARDSHIP.md](STEWARDSHIP.md) for feature and option decisions. Keep full guides
 out of always-loaded instructions; load them when the corresponding task arises.

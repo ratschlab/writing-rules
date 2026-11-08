@@ -114,7 +114,7 @@ class Integration(unittest.TestCase):
             with zipfile.ZipFile(root/'WritingRules.zip') as archive:
                 for notice in ('LICENSE', 'AUTHORS'):
                     self.assertEqual(archive.read('WritingRules/'+notice), (PROJECT/notice).read_bytes())
-            shutil.copytree(PROJECT/'examples/metagraph/styles',root/'styles')
+            shutil.copytree(PROJECT/'tests/fixtures/styles',root/'styles')
             config=root/'.vale.ini'
             config.write_text('StylesPath = styles\nPackages = '+str(root/'WritingRules.zip')+'\n'
                               '[*.{md,rst,txt}]\nBasedOnStyles = MetaGraph\n'

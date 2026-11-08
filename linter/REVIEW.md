@@ -1,6 +1,8 @@
 # Reassessment of the original 28 rules
 
-Scope: all 28 inherited rules, including their later clarifications. This is a generalization review, not adoption or repeal of any project's existing policy. Decisions below cite the new [principles](PRINCIPLES.md) and their [sources](SOURCES.md). Each row separates the useful intent from thresholds and implementation choices. No historical measurement of a particular product is treated as evidence about other products.
+Scope: all 28 inherited rules, including their later clarifications. This is a generalization review, not adoption or repeal of any project's existing policy. Decisions below cite the new [principles](../guides/PRINCIPLES.md) and their [sources](../sources/README.md). Each row separates the useful intent from thresholds and implementation choices. No historical measurement of a particular product is treated as evidence about other products.
+
+In this file, R1–R28 name the inherited rules. The linter checks in [GUIDE.md](GUIDE.md) reuse the numbers R1–R9 of the rules they came from, and Vale reports them as `Writing.R1` to `Writing.R9`. The guides use other prefixes: P for writing principles, E for teaching, D for stewardship and S for sources.
 
 | ID | Disposition for shared guidance | Reason and replacement |
 |---|---|---|
@@ -33,11 +35,11 @@ Scope: all 28 inherited rules, including their later clarifications. This is a g
 | R27 | Retain accessibility objective, fix coverage claim | Apply relevant WCAG criteria with their exceptions (P9). A few contrast/token checks and axe do not establish AA conformance. |
 | R28 | Design-system option | Use notices sparingly (S12), place task information where needed (P7). Banner count and width are local conventions. |
 
-Reviewed 28/28. New emphasis: documentation purpose (P2), uncertainty preservation (P4), truthful state distinctions (P8), and verification of rendered behavior (P9). New agent-specific guidance is in [ADOPTING.md](ADOPTING.md).
+Reviewed 28/28. New emphasis: documentation purpose (P2), uncertainty preservation (P4), truthful state distinctions (P8), and verification of rendered behavior (P9). New agent-specific guidance is in [ADOPTING.md](../guides/ADOPTING.md).
 
 ## Mechanical migration
 
-R1/R4/R5/R7/R9 remain available for compatibility but are disabled in the shared default. R2/R6 remain suggestions. Project vocabulary is supplied locally as R8. MetaGraph can explicitly retain R1/R4/R7 while its maintainers review the policy change separately. A punctuation detector identifies punctuation; it does not identify bad writing.
+R1/R4/R5/R7/R9 remain available for compatibility but are disabled in the shared default. R2/R6 remain suggestions. Project vocabulary is supplied locally as R8. As of 2026-11-08, MetaGraph enables only `Writing.R4` and supplies its own R8 terms. A punctuation detector identifies punctuation; it does not identify bad writing.
 
 ## Evidence not carried forward
 
