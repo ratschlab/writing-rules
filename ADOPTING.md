@@ -16,6 +16,8 @@ Before changing documentation or user-facing text, read
 Write for the reader's task. Preserve facts, uncertainty and necessary detail.
 Treat length and wording warnings as review prompts, not reasons to change meaning.
 Check changed UI text in context and run the documented text check.
+For tutorials, articles and other text meant to teach, also read
+`docs/writing/TEACHING.md`.
 Our local terminology and development/approval instructions take precedence.
 Before preparing contributions, issues, reviews or commit messages, read the relevant section of
 `docs/writing/ENGINEERING.md`.

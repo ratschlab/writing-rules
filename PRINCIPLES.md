@@ -1,6 +1,6 @@
 # Writing that helps people act
 
-Use these principles for English documentation and interface text. Choose the reader and task first. A research explanation, a command reference and a confirmation dialog need different amounts of detail. This guide is opinionated about clarity and accuracy; exact word limits and punctuation bans are optional house styles.
+Use these principles for English documentation and interface text. Choose the reader and task first. A research explanation, a command reference and a confirmation dialog need different amounts of detail. This guide is opinionated about clarity and accuracy; exact word limits and punctuation bans are optional house styles. For text whose goal is understanding, such as algorithm articles and conceptual explanations, also read [TEACHING.md](TEACHING.md).
 
 Each principle names its basis: **research**, **standard**, **practice**, or **house judgment**. See [sources and limitations](SOURCES.md). A cited source supports the stated principle, not every possible implementation of it. These principles require contextual review; the linter does not certify them.
 
