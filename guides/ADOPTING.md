@@ -4,29 +4,63 @@ Start with the guide that fits the task. [PRINCIPLES.md](PRINCIPLES.md) covers d
 
 ## A small entry point
 
-Keep a short instruction in the consuming repository's `AGENTS.md`. Pin the shared revision and make the guide available locally for offline work. A tracked snapshot of a few guidance files is simpler than requiring a submodule or assuming every agent can browse. Keep the license with that snapshot. Update it and the tool pin together through a reviewed change.
+Keep a short instruction in the consuming repository's `AGENTS.md`. Add this repository as a git submodule, for example at `docs/writing`. The submodule pins the revision whose text applies, and it carries the license. Change the pin through a reviewed change. Agents that work offline need the files checked out, so the entry point tells them to run `git submodule update --init -- docs/writing` in a fresh clone.
 
-Example (replace the path with the repository's actual snapshot):
+Example (replace `docs/writing` with the repository's submodule path):
 
 ```markdown
 ## Writing for people
 
 Before changing documentation or user-facing text, read
-`docs/writing/PRINCIPLES.md` and the applicable local vocabulary below.
+`docs/writing/guides/PRINCIPLES.md` and the house profile below.
+In a fresh clone, first run `git submodule update --init -- docs/writing`.
 Write for the reader's task. Preserve facts, uncertainty and necessary detail.
 Treat length and wording warnings as review prompts, not reasons to change meaning.
 Check changed UI text in context and run the documented text check.
 For tutorials, articles and other text meant to teach, also read
-`docs/writing/TEACHING.md`.
+`docs/writing/guides/TEACHING.md`.
 Before proposing a new feature, option, flag, endpoint or API field, read
-`docs/writing/STEWARDSHIP.md`.
+`docs/writing/guides/STEWARDSHIP.md`.
 Our local terminology and development/approval instructions take precedence.
 Before preparing contributions, issues, reviews or commit messages, read the relevant section of
-`docs/writing/ENGINEERING.md`.
+`docs/writing/guides/ENGINEERING.md`.
 Check the receiving project's contribution requirements before submission.
 ```
 
-This is an explicit read instruction. A URL alone does not ensure that an agent has loaded the linked text. Include a source revision and paths in the snapshot record, and check loading in the actual agent environment.
+This is an explicit read instruction. A URL alone does not ensure that an agent has loaded the linked text. Check loading in the actual agent environment.
+
+## House profile
+
+A repository can be stricter or looser than the shared guides. Declare each difference in one "House profile" section of its `AGENTS.md`. Readers and agents then see what differs from the shared text and why.
+
+Write one entry per difference:
+
+| Part | Content |
+|---|---|
+| Item | The shared ID it changes, such as P3, E5, D2 or linter check R7. A new local rule gets H1, H2 and so on. |
+| Change | Stricter, looser, off or added. |
+| Rule | The local rule, with exact limits and terms. |
+| Reason | Why the project differs, in one sentence. |
+
+Example:
+
+```markdown
+## House profile
+
+This project follows the shared writing guides with these differences.
+
+- P3, stricter: no semicolons in prose. Split the sentence or use a list.
+  Reason: many readers read English as a second language.
+- Check R2, stricter: no sentence over 30 words, 20 on average.
+  Reason: help text is read in a terminal.
+- Check R9, off. Reason: the docs speak for a named team.
+- H1, added: each `--help` option fits on 1 line.
+  Reason: users scan options in an 80-column terminal.
+```
+
+Shared IDs are P for [PRINCIPLES](PRINCIPLES.md), E for [TEACHING](TEACHING.md) and D for [STEWARDSHIP](STEWARDSHIP.md). [ENGINEERING](ENGINEERING.md) has no IDs, so cite its section heading. Write "check R7" for a [linter check](../linter/GUIDE.md), because the inherited rules in [REVIEW.md](../linter/REVIEW.md) reuse the same numbers. Local rules use H, so they never collide with a shared ID.
+
+The profile states the rule. A checker enforces only the part a pattern can find. If the project runs the shared linter, set the matching checks in its `.vale.ini` and put local terms in its own R8 style, as the [linter guide](../linter/README.md) describes.
 
 ## AGENTS.md, CLAUDE.md and skills
 
@@ -60,9 +94,9 @@ No such comparison has been run for these guides.
 | Mathematical exposition / cp-algorithms | P1–P4, P6, P10 | Preserve proofs, notation and legitimate “we”/“may”; evaluate Markdown extensions. |
 | Legal/privacy notices | Clear structure and truthful scope | Jurisdiction-specific review; no automatic modal-verb or defined-term rewrites. |
 
-These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local. Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [the source list](../sources/writing.md#existing-implementations) records the existing ecosystem.
+These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local, in a [house profile](#house-profile). Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [the source list](../sources/writing.md#existing-implementations) records the existing ecosystem.
 
-For engineering communication, also snapshot [ENGINEERING.md](ENGINEERING.md)
+For engineering communication, also point to [ENGINEERING.md](ENGINEERING.md)
 and route to its relevant section from the local entry point. Do the same with
 [STEWARDSHIP.md](STEWARDSHIP.md) for feature and option decisions. Keep full guides
 out of always-loaded instructions; load them when the corresponding task arises.

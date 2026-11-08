@@ -12,7 +12,7 @@ These guides help people and agents write documentation, interface text, enginee
 | [STEWARDSHIP](guides/STEWARDSHIP.md) | Deciding whether a project adds, keeps or removes a feature, option or API field | D1–D9 |
 | [ADOPTING](guides/ADOPTING.md) | Pointing a repository's people and agents to these guides | |
 
-Pin a revision when you adopt the guides. [ADOPTING](guides/ADOPTING.md) shows a short entry point for `AGENTS.md`.
+Pin a revision as a git submodule when you adopt the guides. [ADOPTING](guides/ADOPTING.md) shows a short entry point for `AGENTS.md`. It also shows how to record where a project differs from the guides.
 
 ## How evidence is graded
 
