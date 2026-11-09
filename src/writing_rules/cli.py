@@ -40,7 +40,7 @@ def scan(root, files, config, vale, vale_config):
             errors.extend(f'{file}:{issue}' for issue in issues)
             positions = None
             options = config.get('source', {})
-            if suffix in ('.cpp', '.hpp', '.cc', '.h', '.cu', '.cuh'):
+            if suffix in ('.cpp', '.hpp', '.cc', '.h', '.cu', '.cuh', '.mm'):
                 opts = dict(options.get('cpp', {}))
                 opts['all_strings'] = any(fnmatch.fnmatch(file, p) for p in opts.get('all_strings_in', []))
                 recovered = []

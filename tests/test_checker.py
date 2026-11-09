@@ -130,6 +130,20 @@ class Integration(unittest.TestCase):
             alerts, _ = scan(root, ['uncertainty.md'], {}, VALE, config)
             self.assertFalse([a for a in alerts.get('uncertainty.md', []) if a['Severity']=='error'])
 
+    def test_objective_cpp_messages_are_checked(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            export_package(root/'WritingRules.zip')
+            config = root/'.vale.ini'
+            config.write_text('StylesPath = styles\nPackages = '+str(root/'WritingRules.zip')+'\n'
+                              '[*.{md,rst,txt}]\nWriting.R1 = YES\n')
+            run = subprocess.run([VALE, 'sync', '--no-global'], cwd=root, text=True, capture_output=True)
+            self.assertEqual(run.returncode, 0, run.stdout+run.stderr)
+            (root/'m.mm').write_text('void f(id device) {\n    id queue = [device newCommandQueue];\n'
+                                     '    if (queue == nil) throw std::runtime_error("No queue; stop");\n}\n')
+            alerts, _ = scan(root, ['m.mm'], {}, VALE, config)
+            self.assertEqual([a['Line'] for a in alerts['m.mm'] if a['Check'] == 'Writing.R1'], [3])
+
     def test_python_docstrings_are_checked_as_rst(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

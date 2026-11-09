@@ -79,7 +79,7 @@ Raw Vale remains useful for editor suggestions, but the runner is the CI gate.
 
 ## Source coverage
 
-C++ extraction uses Tree-sitter. It selects logger error/warning/critical
+C++ extraction uses Tree-sitter. It also reads Objective-C++ (`.mm`) files with the C++ grammar. Objective-C syntax there is reported as parse recovery. It selects logger error/warning/critical
 arguments, stderr output and thrown-call strings. Stderr output covers
 `std::cerr`, `fprintf(stderr, ...)` and `std::fprintf(stderr, ...)`. A consumer can opt selected
 files into all-string scanning. Adjacent literals, escapes and raw strings are
