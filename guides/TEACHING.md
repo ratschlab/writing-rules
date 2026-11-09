@@ -8,7 +8,7 @@ Each principle names its basis: **research**, **practice**, **opinion** or **hou
 
 ## E1. Decide what the reader knows and what they should understand
 
-Name the prerequisites and the understanding the text should produce. Write to the gap between them. Link prerequisites instead of reteaching them. **Practice:** Su and Google's technical-writing course both put the audience first. Google warns that experts skip steps they no longer notice. [S53, S59](../sources/teaching.md#teaching-and-explanation) **Research:** the expertise reversal effect shows that the right amount of guidance depends on the reader. Support that helps novices can hinder experts. [S34](../sources/teaching.md#teaching-and-explanation)
+Name the prerequisites and the understanding the text should produce. Write to the gap between them. Link prerequisites instead of reteaching them. **Practice:** Su and Google's technical-writing course both put the audience first. Google warns that expert knowledge can spoil an explanation for newcomers. [S53, S59](../sources/teaching.md#teaching-and-explanation) **Research:** the expertise reversal effect shows that the right amount of guidance depends on the reader. Support that helps novices can hinder experts. [S34](../sources/teaching.md#teaching-and-explanation)
 
 For example, an article on centroid decomposition can list depth-first search and subtree sizes as prerequisites in one line. It then spends its length on why the recursion depth is logarithmic.
 
@@ -58,11 +58,11 @@ Separate what is proved, what is expected under stated assumptions and what is o
 
 ## E9. Address the likely misconception directly
 
-When readers commonly hold a wrong idea, state it, say that it is wrong and explain why. Then give the correct idea. Show the tempting incorrect step when it is natural and instructive. **Research:** a meta-analysis of 44 comparisons found refutation texts improved learning over other conditions, with a moderate effect. Most studies concerned science concepts. [S41–S43](../sources/teaching.md#teaching-and-explanation) Refute misconceptions readers actually hold. Repeating a myth without a clear correction was not what these studies tested.
+When readers commonly hold a wrong idea, state it, say that it is wrong and explain why. Then give the correct idea. Show the tempting incorrect step when it is natural and instructive. **Research:** a meta-analysis of 44 comparisons found refutation texts improved learning over other conditions, with a moderate effect. Most studies concerned science concepts. [S43](../sources/teaching.md#teaching-and-explanation) Two earlier reviews are reported to agree. We read only secondary summaries of them. [S41, S42](../sources/teaching.md#teaching-and-explanation) Refute misconceptions readers actually hold. Repeating a myth without a clear correction was not what these studies tested.
 
 ## E10. Keep what serves understanding, cut what only decorates
 
-Motivation, history that explains a design choice and a second view of the same idea serve understanding. Anecdotes, decorative images and tangents compete with it. **Research:** meta-analyses of the seductive details effect found that interesting but irrelevant additions reduce learning. [S45, S46](../sources/teaching.md#teaching-and-explanation) **Opinion/practice:** Thurston and Knuth value stating a key idea in more than one way. Diátaxis treats context and reasons as the substance of explanation. [S51, S56, S58](../sources/teaching.md#teaching-and-explanation)
+Motivation, history that explains a design choice and a second view of the same idea serve understanding. Anecdotes, decorative images and tangents compete with it. **Research:** two meta-analyses of the seductive details effect are reported to find that interesting but irrelevant additions reduce learning. We read only secondary summaries of them. [S45, S46](../sources/teaching.md#teaching-and-explanation) **Opinion/practice:** Thurston and Knuth value stating a key idea in more than one way. Diátaxis treats context and reasons as the substance of explanation. [S51, S56, S58](../sources/teaching.md#teaching-and-explanation)
 
 Two views of an idea are different from one statement repeated. The redundancy effect concerns duplicate presentations of the same content. It does not argue against a complementary view. [S33, S44](../sources/teaching.md#teaching-and-explanation)
 

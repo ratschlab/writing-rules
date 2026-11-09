@@ -6,7 +6,7 @@ This work belongs to **software product management**: deciding what a product co
 
 The question matters more when code is cheap to write. An agent can add a mirrored option in minutes. The project then tests, documents, supports and keeps it compatible for as long as it exists. Writing cost has fallen. Carrying cost has not. This framing is **house judgment**, built on the cost evidence in D5.
 
-Each principle names its basis: **research**, **standard**, **practice**, **opinion** or **house judgment**. See [sources and limits](../sources/stewardship.md#stewardship). The research measures the cost of options, technical debt and deprecation, and how often ideas fail. No cited study tests this review procedure itself. Bug fixes and refactoring that make code easier to change are outside its scope. [Fowler, S95](../sources/stewardship.md#stewardship) The checklists need a reviewer's judgment. A linter cannot check them.
+Each principle names its basis: **research**, **standard**, **practice**, **opinion** or **house judgment**. See [sources and limits](../sources/stewardship.md#stewardship). The research measures the cost of options, technical debt and deprecation. Practice reports say how often ideas fail. No cited study tests this review procedure itself. Bug fixes and refactoring that make code easier to change are outside its scope. [Fowler, S95](../sources/stewardship.md#stewardship) The checklists need a reviewer's judgment. A linter cannot check them.
 
 The guide follows a feature through its life: before adding, keeping the surface small, owning it, checking its use, and changing or removing it.
 
@@ -52,7 +52,7 @@ Estimate what the project pays every month the feature exists. That includes tes
 
 **Research:** in a longitudinal survey of 43 developers, Besker et al. found that developers lost about 23% of their working time to technical debt. Extra testing was the most common cost. These figures are self-reported. [S84](../sources/stewardship.md#stewardship) Lehman's law of increasing complexity, derived from observing large systems, says complexity grows with each change unless work is done to reduce it. [S85](../sources/stewardship.md#stewardship) Xu et al. found that up to 48.5% of configuration issues were users struggling to find or set the right parameter. [S81](../sources/stewardship.md#stewardship)
 
-**Practice:** Fowler names the cost of carry. A feature adds complexity that slows every later change, even when it works. [S95](../sources/stewardship.md#stewardship) *Software Engineering at Google* states that code is a liability, not an asset. Its value is the functionality it delivers. [S109](../sources/stewardship.md#stewardship) Naming an owner for each feature is **house judgment**.
+**Practice:** Fowler names the cost of carry. A feature adds complexity that slows every later change, even when it works. [S95](../sources/stewardship.md#stewardship) *Software Engineering at Google* states that code is a liability, not an asset. Its value is the functionality it delivers. [S109](../sources/stewardship.md#stewardship) Naming an owner for an experiment or a temporary flag is **house judgment**.
 
 ## Check its use
 
@@ -109,7 +109,7 @@ For mirrored code, ask questions 1 to 3 again for the new location. A need in on
 Use this checklist at a release or when touching an old feature.
 
 1. **Is it used?** Check the evidence named when it was added, or find some now.
-2. **Does it still have an owner?** If not, find one or plan its removal.
+2. **Does anyone still maintain it?** If not, find a maintainer or plan its removal.
 3. **What does it cost?** Note recent bugs, support questions and the work it slowed.
 4. **Should it go?** If so, deprecate it with notice, a replacement or workaround, and a removal version.
 5. **Is the decision recorded?** Write down why it stays or goes.
