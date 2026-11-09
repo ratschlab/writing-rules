@@ -34,9 +34,17 @@ Example PR description for a hypothetical parser fix: “An empty line ends the 
 
 Explain the problem and why it matters. Discuss the code or behavior respectfully. Distinguish a required correction from a question or optional improvement, and allow the author to choose a suitable fix. **Practice:** Google's review-comment guidance favors reasoned, actionable feedback; its review standard distinguishes code-health concerns from personal preference. [S21, S22](../sources/writing.md#engineering-communication)
 
-**House guidance:** attach a finding to the smallest useful location, state the triggering condition and impact, then provide evidence or a concrete example. Label uncertainty as uncertainty. Use the project's severity scale when it has one; do not invent severity to make a preference blocking. Check the current revision and existing discussion before repeating a finding. A suggested fix is useful when clear, but a valid finding need not contain a full redesign. For a new feature, option or API field, also ask whether the project needs it. See [STEWARDSHIP.md](STEWARDSHIP.md).
+**House guidance:** attach a finding to the smallest useful location, state the triggering condition and impact, then provide evidence or a concrete example. Label uncertainty as uncertainty. Check the current revision and existing discussion before repeating a finding. A suggested fix is useful when clear, but a valid finding need not contain a full redesign. For a new feature, option or API field, also ask whether the project needs it. See [STEWARDSHIP.md](STEWARDSHIP.md).
 
 Example: “If the server commits the request before this timeout, retrying can create a duplicate job. Check the request ID before resubmitting.” This is a hypothesis until supported by the server's retry contract or a reproduction.
+
+**Severity:** start each finding with one severity word, unless the project declares its own scale.
+
+- **Must:** a defect, a broken project rule or a false claim. A Must blocks merge until it is fixed, or until the reviewer withdraws it after the author's reply.
+- **Should:** a fix would clearly help. The author decides. Leaving it needs a one-line reason.
+- **Nit:** style or wording. It needs no reply.
+
+Do not raise a preference to Must. An automated reviewer that prints its own priority keeps it and adds no second word. Read cubic's priorities as P0 and P1 = Must, P2 = Should and P3 = Nit. The person who merges may move a finding one level with a one-line reply. **Practice:** Google's guide labels minor comments "Nit:" and optional ones "Optional:", and lets a reviewer approve while minor comments stay open. Conventional Comments marks whether a comment blocks separately from its type. RFC 2119 gives MUST and SHOULD their meaning. cubic labels each finding from P0 (critical) to P3 (low) and offers no setting to rename the labels. We found no study that measures how severity labels change authors' responses. [S21, S111, S112, S113](../sources/writing.md#engineering-communication)
 
 For a reply, address the actual concern: explain the correction and point to it, or explain why the current behavior is intentional with evidence. Recheck the revised code before treating the finding as addressed. In a review summary, separate what was inspected, what was demonstrated and any material coverage gap. Do not imply human review, approval or exhaustive coverage that did not occur. Thread resolution and approval authority remain project policy.
 
