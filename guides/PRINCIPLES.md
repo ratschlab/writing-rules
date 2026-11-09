@@ -26,7 +26,7 @@ Prefer “The server rejected the expired token” when diagnosis matters; “No
 
 ## P4. Preserve facts and uncertainty
 
-Verify defaults, limits, units and promises against their owning source. Distinguish an observed outcome from an inference or a prediction. Never turn uncertainty into certainty to satisfy a style check. **Research/practice:** factual, verifiable content matters to expert readers [S2](../sources/writing.md#research). Requiring a code/config reference for implementation claims is our **house verification practice**, not a result measured by that study.
+Verify defaults, limits, units and promises against their owning source. Distinguish an observed outcome from an inference or a prediction. Never turn uncertainty into certainty to satisfy a style check. **Research/practice:** factual, verifiable content matters to expert readers [S2](../sources/writing.md#research). Verifying implementation claims against the code or configuration is our **house practice**, not a result measured by that study.
 
 “The request timed out. Its completion status is unknown. Check the job history before retrying” preserves a meaningful uncertainty. “The operation failed” would invent an outcome. Words such as “may” and “might” remain valid when they express real uncertainty.
 
@@ -50,9 +50,9 @@ For a destructive action, name the object and effect. Whether confirmation or un
 
 ### Multi-step help and consequential actions
 
-When readers can take different routes, name each route where they choose it. Put an exception beside the step it changes. Separate doing the task from checking its result. Someone returning after an interruption should be able to recognize their current state, identify who acts next, and continue without repeating a consequential action. [W3C cognitive accessibility patterns, S28](../sources/writing.md#cognitive-accessibility)
+When readers can take different routes, name each route where they choose it. Put an exception beside the step it changes. Separate doing the task from checking its result. Someone returning after an interruption should be able to recognize their current state, identify who acts next, and continue without repeating a consequential action. **Practice:** [W3C cognitive accessibility patterns, S28](../sources/writing.md#cognitive-accessibility)
 
-Use emphasis for the control someone needs to find or the consequence that changes their decision. Put that consequence before the action. Keep supporting details in nearby ordinary text. A warning that competes with several other highlighted passages can be hard to find. Inspect the rendered page at phone and desktop widths. Warning length is an editorial choice. [GOV.UK warning text](https://design-system.service.gov.uk/components/warning-text/)
+Use emphasis for the control someone needs to find or the consequence that changes their decision. Put that consequence before the action. Keep supporting details in nearby ordinary text. A warning that competes with several other highlighted passages can be hard to find. For a web page, inspect it at phone and desktop widths. Warning length is an editorial choice. **Practice:** [GOV.UK warning text](https://design-system.service.gov.uk/components/warning-text/)
 
 **Worked example.** A booking service accepts new requests and lets people resume saved drafts. Its initial help says, “Start a request or open your draft, select a date, and send it to the coordinator, who will review it. Dates cannot be changed after sending. Pending requests are under My bookings.”
 
@@ -70,7 +70,7 @@ A reader who returns midway can use these instructions:
 >
 > Open **My bookings**. If your request says *Pending*, the coordinator has it for review.
 
-When reviewing a page, ask someone to find their route, explain the consequence in their own words, and pick up the task after a pause. Observe where they look or repeat a step. Use those observations to revise the page. [W3C guidance on testing focus, S28](../sources/writing.md#cognitive-accessibility)
+When reviewing a page, ask someone to find their route, explain the consequence in their own words, and pick up the task after a pause. Observe where they look or repeat a step. Use those observations to revise the page. **Practice:** [W3C guidance on testing focus, S28](../sources/writing.md#cognitive-accessibility)
 
 ## P8. Describe states accurately and make feedback perceivable
 
@@ -86,9 +86,9 @@ No font-independent `34em` cap, single phone screenshot or word-count proxy esta
 
 ### Diagrams in help pages
 
-When a page includes a figure, edit the figure and its surrounding text together. Start with the question the reader should be able to answer by tracing the drawing. Show the relationship that supplies the answer. For a dependency, draw the connections and show whether every input is required or any one is enough. For a sequence, show its order. Preserve any condition that changes what the reader can conclude. [Google on technical illustrations, S29](../sources/writing.md#diagrams)
+When a page includes a figure, edit the figure and its surrounding text together. Start with the question the reader should be able to answer by tracing the drawing. Show the relationship that supplies the answer. For a dependency, draw the connections and show whether every input is required or any one is enough. For a sequence, show its order. Preserve any condition that changes what the reader can conclude. **Practice:** [Google on technical illustrations, S29](../sources/writing.md#diagrams)
 
-Use short labels for the inputs, conditions and outcome. Move explanations, examples and troubleshooting into nearby prose. Keep a consequence visible before the action it governs. Give a complex figure a short identifying text alternative and make the relationships and essential details available in text. [W3C WAI on complex images, S30](../sources/writing.md#diagrams)
+Use short labels for the inputs, conditions and outcome. Move explanations, examples and troubleshooting into nearby prose. Keep a consequence visible before the action it governs. Give a complex figure a short identifying text alternative and make the relationships and essential details available in text. **Practice:** [W3C WAI on complex images, S30](../sources/writing.md#diagrams)
 
 **Worked example.** To explain when a library hold becomes ready for pickup, draw two inputs, “Book returned” and “Hold is first in queue”, converging at **Both required**. Draw an arrow from there to “Staff shelve the book”, then to “Ready for pickup”. Both inputs can be true while the book is still at the desk. Put the explanation of queue positions in the page text.
 

@@ -16,7 +16,7 @@ The guide follows a feature through its life: before adding, keeping the surface
 
 A proposal should name a real user or caller and a concrete task they cannot do well today. "It might be useful" names no one. Parity with a similar component is not a need by itself. Ask for the request, issue, workload or caller that motivates the change. For an internal API field, the caller can be another component, but it should exist now.
 
-**Research:** most product ideas do not deliver the value their authors expect. Kohavi and Thomke report that at Microsoft about one third of controlled experiments proved effective. At Google and Bing the share was 10% to 20%. These are company reports in a practitioner magazine, not a peer-reviewed study. They still show that the author's confidence is weak evidence of need. [S86](../sources/stewardship.md#stewardship)
+**Practice:** in companies that test changes in controlled online experiments, most changes do not deliver the value their authors expect. Kohavi and Thomke report that at Microsoft about one third of controlled experiments proved effective. At Google and Bing the share was 10% to 20%. These are company reports in a practitioner magazine, not a peer-reviewed study. They still show that the author's confidence is weak evidence of need. [S86](../sources/stewardship.md#stewardship)
 
 **Practice:** open-source proposal processes ask for the problem first. The Rust RFC template asks for "several specific use cases" in its Motivation section. PEP 1 says a proposal without sufficient motivation may be rejected. Go asks that a language change address an important issue for many people. [S89–S91](../sources/stewardship.md#stewardship) Product-discovery practice frames the same question as value risk and as the customer's job to be done. [Cagan, S101, and Christensen et al., S100](../sources/stewardship.md#stewardship)
 
@@ -48,7 +48,7 @@ Once the need is real, build only what that need requires. Prefer a good default
 
 ### D5. Count the ongoing cost and name who carries it
 
-Estimate what the project pays every month the feature exists. That includes tests, documentation, support questions, compatibility, security review and the attention of future readers. Name the person or team who will answer its issues and keep it working. A feature that nobody owns still costs the project. Its cost lands on whoever touches the code next.
+Estimate what the project pays every month the feature exists. That includes tests, documentation, support questions, compatibility, security review and the attention of future readers. Say who will answer its issues and keep it working. For an experiment or a temporary flag, name a person. A feature that nobody owns still costs the project. Its cost lands on whoever touches the code next.
 
 **Research:** in a longitudinal survey of 43 developers, Besker et al. found that developers lost about 23% of their working time to technical debt. Extra testing was the most common cost. These figures are self-reported. [S84](../sources/stewardship.md#stewardship) Lehman's law of increasing complexity, derived from observing large systems, says complexity grows with each change unless work is done to reduce it. [S85](../sources/stewardship.md#stewardship) Xu et al. found that up to 48.5% of configuration issues were users struggling to find or set the right parameter. [S81](../sources/stewardship.md#stewardship)
 
@@ -58,11 +58,11 @@ Estimate what the project pays every month the feature exists. That includes tes
 
 ### D6. Find out whether it is used
 
-After release, check whether the feature serves the need that justified it. Use the evidence the project has: issues and questions, code search across known dependents, download or request logs, and opt-in telemetry where the project has it. Respect the project's privacy commitments. Absence of complaints is weak evidence of use. Set a date for the check when the feature is added.
+After release, check whether the feature serves the need that justified it. Use the evidence the project has: issues and questions, code search across known dependents, download or request logs, and opt-in telemetry where the project has it. Respect the project's privacy commitments. Absence of complaints is weak evidence of use. For an experiment, a temporary flag or a feature whose need is uncertain, set a date for the check when it is added. This is **house judgment**.
 
 **Research:** Xu et al. measured which parameters real users set, and up to 54.1% were rarely set by anyone. Developers had added far more parameters than most users needed. [S81](../sources/stewardship.md#stewardship)
 
-**Practice:** Cox argues that bug reports show only problems users notice, and surveys miss rarely used features. He proposes minimal, public, opt-in usage counters for the Go toolchain. [S110](../sources/stewardship.md#stewardship) Kohavi and Thomke show that measured outcomes often contradict expectations. [S86](../sources/stewardship.md#stewardship) Uber's Piranha tool found and removed code for 1,381 stale feature flags, 17% of all flags at the time. [S87](../sources/stewardship.md#stewardship)
+**Practice:** Cox argues that bug reports show only problems users notice, and surveys miss rarely used features. He proposes minimal, public usage counters for the Go toolchain, later revised to opt-in. [S110](../sources/stewardship.md#stewardship) Kohavi and Thomke show that measured outcomes often contradict expectations. [S86](../sources/stewardship.md#stewardship) Uber's Piranha tool generated cleanup changes for 1,381 stale feature flags, 17% of all flags at the time. [S87](../sources/stewardship.md#stewardship)
 
 ## Change and remove
 
@@ -95,10 +95,10 @@ Apply this checklist to each new feature, option, flag, endpoint or API field. A
 1. **Who needs it?** Name the user, caller or issue that asked for it.
 2. **What task does it serve?** Describe the concrete thing they will do with it.
 3. **What happens without it?** Describe today's workaround and the cheapest alternative.
-4. **Is it worth the effort now?** Compare it with other work the same people could do.
+4. **Is it worth the effort now?** Maintainers compare it with their other work. Authors can help by stating the cost.
 5. **Is this the smallest version?** Check each parameter, field and mode against the stated need. Remove the ones nobody asked for.
-6. **Who owns it, and what does it cost to keep?** Name the owner. List new tests, documentation, compatibility promises and interactions with other options.
-7. **How would we know it is used?** Name the evidence and the date to check it.
+6. **Who maintains it, and what does it cost to keep?** Say who maintains it. List new tests, documentation, compatibility promises and interactions with other options.
+7. **How would we know it is used?** Name the evidence. For experiments and temporary flags, add a date to check it.
 8. **How would we remove it?** Name who would break and how they would migrate.
 9. **Is the decision recorded?** Put the reasoning in the PR or issue so the next reviewer can find it.
 

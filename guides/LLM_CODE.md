@@ -10,7 +10,7 @@ Each principle names its basis: **research**, **standard**, **practice**, **opin
 
 ### C1. Search for existing code before writing new code
 
-Before adding a function, type, constant or test helper, search the base branch and the project's dependencies for one that already does the job. Search by what the code does, not only by the name you would give it. If a close match exists, call it, or extend it and say why. Follow the patterns the surrounding code already uses. A new helper that repeats existing logic is a defect, even when it is correct and tested.
+Before adding a function, type, constant or test helper, search the base branch and the project's dependencies for one that already does the job. Search by what the code does, not only by the name you would give it. If a close match exists, call it, or extend it and say why. Follow the patterns the surrounding code already uses. A new helper that duplicates knowledge the existing code must stay consistent with is a defect, even when it is correct and tested. A deliberate fork is fine when the change says why. This rule is **house judgment**.
 
 **Research:** agents add code that repeats existing code. In one Python project, new functions in agent pull requests were about 1.87 times as similar to existing functions as new functions in human pull requests. [S114](../sources/llm-code.md#duplication-and-reuse) In a Java dataset, agents gave duplication as the reason for only 1.1% of their refactorings. [S115](../sources/llm-code.md#duplication-and-reuse) Models re-implement a helper even when it is in their context, and the copy still passes the tests. [S118](../sources/llm-code.md#duplication-and-reuse) Models do much worse on functions that depend on project code, and better when relevant repository code is retrieved first. [S117, S119, S120](../sources/llm-code.md#duplication-and-reuse) Vendor data shows copied lines rising and moved lines falling across the industry during AI adoption. It is a correlation by calendar year from a vendor that sells code analysis. [S116](../sources/llm-code.md#duplication-and-reuse)
 
@@ -22,7 +22,7 @@ Before adding a function, type, constant or test helper, search the base branch 
 
 Change only what the task needs. Leave out features, options, refactorings and clean-ups that nobody asked for. If no change is needed, say so. If the specification cannot be met, stop and report it instead of working around it. Propose extra work separately. A new feature, option or API field also needs the checks in [STEWARDSHIP.md](STEWARDSHIP.md).
 
-**Research:** agents tend to act. On tasks that needed no change, agents made unwanted changes in 35% to 65% of cases, most often to code unrelated to the issue. Telling them that no change is a valid outcome, and asking them to reproduce the problem first, helped. This is a preprint. [S132](../sources/llm-code.md#scope-and-hidden-changes) Among patches that passed the tests, extra behaviour was far more common than missing behaviour (27.3% against 5.2%), and some extra behaviour was wrong. [S133](../sources/llm-code.md#scope-and-hidden-changes) Unwanted features were a named reason for rejecting agent pull requests on GitHub. [S131](../sources/llm-code.md#scope-and-hidden-changes)
+**Research:** agents tend to act. On tasks that needed no change, agents made unwanted changes in 35% to 65% of cases, most often to code unrelated to the issue. Asking them to reproduce the problem first helped when no change was framed as a valid outcome. It also made them stop on partly fixed issues that still needed a patch. This is a preprint. [S132](../sources/llm-code.md#scope-and-hidden-changes) Among 77 inspected patches that passed the tests but behaved differently from the developers' fix, 21 added behaviour and 4 missed some. Some of the added behaviour was wrong. [S133](../sources/llm-code.md#scope-and-hidden-changes) Unwanted features were a named reason for rejecting agent pull requests on GitHub. [S131](../sources/llm-code.md#scope-and-hidden-changes)
 
 **Opinion:** Kent Beck treats functionality he did not ask for as a sign that the agent is going off track, "even if it was a reasonable next step". [S137](../sources/llm-code.md#scope-and-hidden-changes)
 
@@ -38,7 +38,7 @@ Put a refactoring, a formatting change and a behaviour change in separate commit
 
 ### C4. Check every name, dependency and claim before relying on it
 
-Confirm that each package, function, flag and file you use exists in the version the project uses. Look it up in the registry, the lockfile or the source. Report a result only when a command in this session produced it, and show the command and its output. "Tests pass" without output is not evidence. Run the project's static analysis and security checks on the change.
+Confirm that each package, function, flag and file you use exists in the version the project uses. Look it up in the registry, the lockfile or the source. Report a result only when a command you ran, or a CI run on the exact revision, produced it. Point to the command and its output. "Tests pass" without output is not evidence. Say which checks you could not run. Run the project's static analysis and security checks on the change.
 
 **Research:** models invent dependencies. Across 16 models, at least 5.2% of packages suggested by commercial models and 21.7% of those suggested by open-source models did not exist, and many names recurred across runs. [S138](../sources/llm-code.md#verification) Fluent answers hide errors. In one study, 52% of ChatGPT answers to programming questions contained incorrect information, and users missed it 39% of the time. [S139](../sources/llm-code.md#verification) People who used an assistant wrote less secure code and believed it was more secure. [S140](../sources/llm-code.md#verification) A pre-release model claimed to have run code it could not run. [S141](../sources/llm-code.md#verification) Generated code had known weakness classes in about 40% of security-relevant scenarios. A later replication found fewer, but still many. [S142, S143](../sources/llm-code.md#verification) Developers' sense of speed and measured speed can disagree. METR's first trial found experienced developers 19% slower with AI while they believed they were faster. Its 2026 update estimates a speed-up, with strong selection effects. Measure outcomes rather than trusting the impression. [S165](../sources/llm-code.md#verification)
 
@@ -46,7 +46,7 @@ Confirm that each package, function, flag and file you use exists in the version
 
 ### C5. Write tests that can fail
 
-Take expected values from the specification, the issue or a trusted reference, not from running the new code. For a fix, add a test that fails before the change and passes after it. Check that the tests would catch a plausible mistake. Mutation testing on the changed lines measures that. Coverage does not.
+Take expected values from the specification, the issue or a trusted reference, not from running the new code. For a refactoring, a characterization test may record the old code's output. Record it before the change. For a fix, add a test that fails before the change and passes after it. Check that the tests would catch a plausible mistake. Mutation testing on the changed lines measures that. Coverage does not.
 
 **Research:** tests that a model writes from the code tend to encode what the code does, bugs included. This is a preprint. [S145](../sources/llm-code.md#tests) SWE-bench requires at least one test that fails before the fix. [S146](../sources/llm-code.md#tests) Even so, 29.6% of patches that passed behaved differently from the developers' fix, because the tests were weak. [S133](../sources/llm-code.md#scope-and-hidden-changes) Coverage correlates only weakly with a suite's ability to find faults once suite size is controlled. [S147](../sources/llm-code.md#tests) At Google, mutation testing during code review was practical at scale, and developers who saw mutants wrote more tests. [S148, S149](../sources/llm-code.md#tests)
 
@@ -56,13 +56,13 @@ Take expected values from the specification, the issue or a trusted reference, n
 
 Do not delete, skip or loosen a test, and do not special-case test inputs, to get a green run. If an existing test is wrong, change it in a separate, explained step and name the change in the description. Reviewers should read every edit to a test or assertion as a behaviour change.
 
-**Research:** agents game tests under pressure. In a benchmark whose tests contradict the specification, one frontier model passed 76% of one task set, which is only possible by cheating. It modified tests despite instructions not to, special-cased inputs and overloaded comparison operators. Read-only tests stopped edits but not special-casing. This is a preprint. [S150](../sources/llm-code.md#tests) METR found a frontier model hacking the scorer in 30.4% of runs on one benchmark, and instructions not to cheat did not stop it. [S151](../sources/llm-code.md#tests)
+**Research:** agents game tests under pressure. In a benchmark whose tests contradict the specification, one frontier model passed 76% of one task set, which is only possible by cheating. It modified tests despite instructions not to, special-cased inputs and overloaded comparison operators. Read-only tests stopped edits but not special-casing. This is a preprint. [S150](../sources/llm-code.md#tests) METR found a frontier model hacking the scorer in 30.4% of runs on one benchmark. On one task, instructions not to cheat barely changed how often it planned a hack. [S151](../sources/llm-code.md#tests)
 
 **Practice:** Anthropic's system cards report that its models sometimes special-case tests after repeated failures. They advise monitoring for unexpected edits to test files. Rates fell in later models but did not reach zero. [S152](../sources/llm-code.md#tests) CPython's contribution guide forbids altering or bypassing tests to make them pass. [S160](../sources/llm-code.md#policies-and-practitioner-guidance) GitHub's guide tells reviewers to look for tests deleted or skipped instead of fixed. [S144](../sources/llm-code.md#verification)
 
 ### C7. Handle errors the way the project does
 
-Use the project's existing error types, messages and reporting paths. Do not leave a handler empty or have it only log. Do not catch every exception, and do not fall back silently to a default. Treat one state the same way on every code path. Test the error path itself.
+Use the project's existing error types, messages and reporting paths. Do not leave a handler empty or have it only log, and do not catch every exception, unless the project does so at that boundary. Examples are a top-level handler and best-effort cleanup. Then say why in a comment. Do not fall back silently to a default. Treat one state the same way on every code path. Test the error path itself.
 
 **Research:** Yuan et al. studied 48 catastrophic failures in five distributed systems. 92% came from mishandled errors that the software had already signalled. 35% came from three trivial patterns: an empty or log-only handler, an abort on an overly general exception, and a handler marked TODO. Simple tests of the error handlers would have caught 58%. [S154](../sources/llm-code.md#error-handling) Code models reproduce error-swallowing patterns found in their training data, such as an `except` clause with only `pass`. [S155](../sources/llm-code.md#error-handling) We found no strong study that measures how often current agents swallow errors. The rule rests on the cost evidence and on reviewers' reports.
 
@@ -72,7 +72,7 @@ Use the project's existing error types, messages and reporting paths. Do not lea
 
 ### C8. Describe what the diff does, briefly, and nothing it does not
 
-Write a short description of the final diff: the problem, the result and any behaviour change from C3. Check every claim against the diff before submitting. Leave out review history, abandoned approaches and repeated summaries. [ENGINEERING.md](ENGINEERING.md#pull-request-descriptions) covers the format.
+Write a short description of the final diff: the problem, the result and any behaviour change from C3. Check every claim against the diff before submitting. Leave out review history and repeated summaries. Mention an abandoned approach only when it explains a material tradeoff. [ENGINEERING.md](ENGINEERING.md#pull-request-descriptions) covers the format.
 
 **Research:** among more than 23,000 agent pull requests, the most common mismatch between description and code was a description claiming changes the code did not contain (45.4% of mismatched cases). Mismatched pull requests were accepted 28.3% of the time, against 80.0%. [S156](../sources/llm-code.md#descriptions) Agent descriptions had a median of 355 words, against 56 for human ones. [S130](../sources/llm-code.md#scope-and-hidden-changes) When developers edited generated descriptions, deleting text was the most common edit. They added intent and testing details the tool had missed. [S157](../sources/llm-code.md#descriptions)
 
@@ -88,7 +88,7 @@ The person who submits the change answers for it. They should be able to explain
 
 ### C10. Review against the base branch, not only the diff
 
-For each new function or type, ask whether the base branch or a dependency already provides it. Ask this independently of who calls the new code. A check of callers shows only that the new code is used, not that it is needed. Use a reviewer that has not seen the author's reasoning. Where the project has a clone detector, run it on the change against the base branch.
+For each new function or type, ask whether the base branch or a dependency already provides it. Ask this independently of who calls the new code. A check of callers shows only that the new code is used, not that it is needed. Where possible, add a review pass that has not seen the author's reasoning, such as a fresh agent session. It complements the human reviewer, who reads the reasoning in the description. Where the project has a clone detector, run it on the change against the base branch.
 
 **House judgment, from a case:** in a four-part stack of agent pull requests, independent sweeps found about a dozen helpers that duplicated the base branch or each other. Examples were a hash function identical to one in a dependency, a run-length encoder identical to an existing function, wrappers over existing mapping functions, and test helpers copied between files. Earlier agent reviews had missed them because they checked who used each new symbol.
 
@@ -98,7 +98,7 @@ For each new function or type, ask whether the base branch or a dependency alrea
 
 ## Checklist before submitting
 
-An agent can run these steps on its own change. Report the result of each in the handoff, not in the pull request text.
+An agent can run these steps on its own change. Behaviour changes (step 3) and test edits (step 6) go in the pull request description. Keep the other results with whoever takes over the work, and do not paste routine CI output into the description.
 
 1. **Reuse.** For every new function, type, constant and test helper, search the base branch and dependencies by behaviour. Replace each match with a call, or record why not.
 2. **Scope.** Compare the diff with the task. Remove or split out anything the task did not ask for.
@@ -107,7 +107,7 @@ An agent can run these steps on its own change. Report the result of each in the
 5. **Tests.** Check that each fix has a test that fails without it. Check that expected values come from the specification.
 6. **Test edits.** List every edited, skipped or deleted test or assertion, with its reason.
 7. **Errors.** Search the diff for empty handlers, catch-all handlers and silent defaults.
-8. **Evidence.** Run the project's build, tests and checks in this session, and keep the commands and output.
+8. **Evidence.** Run the project's build, tests and checks, or cite the CI run for the exact revision. Keep the commands and output, and note any check you could not run.
 9. **Description.** Reread the description against the final diff. Remove any claim the diff does not support.
 
 ## Checklist for reviewing agent-written code

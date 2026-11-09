@@ -8,7 +8,7 @@ Each principle names its basis: **research**, **practice**, **opinion** or **hou
 
 ## E1. Decide what the reader knows and what they should understand
 
-Name the prerequisites and the understanding the text should produce. Write to the gap between them. Link prerequisites instead of reteaching them. **Practice:** Su and Google's technical-writing course both put the audience first and warn that experts skip steps they no longer notice. [S53, S59](../sources/teaching.md#teaching-and-explanation) **Research:** the expertise reversal effect shows that the right amount of guidance depends on the reader. Support that helps novices can hinder experts. [S34](../sources/teaching.md#teaching-and-explanation)
+Name the prerequisites and the understanding the text should produce. Write to the gap between them. Link prerequisites instead of reteaching them. **Practice:** Su and Google's technical-writing course both put the audience first. Google warns that experts skip steps they no longer notice. [S53, S59](../sources/teaching.md#teaching-and-explanation) **Research:** the expertise reversal effect shows that the right amount of guidance depends on the reader. Support that helps novices can hinder experts. [S34](../sources/teaching.md#teaching-and-explanation)
 
 For example, an article on centroid decomposition can list depth-first search and subtree sizes as prerequisites in one line. It then spends its length on why the recursion depth is logarithmic.
 
@@ -24,7 +24,7 @@ Start from what we want to learn about the object. Then take the steps a reader 
 
 When a natural attempt fails, show it briefly and say why it fails. The failure motivates the fix. Keep the exploration guided: name the goal, say why each attempt is worth trying, and arrive at the result. State the result where an expert can find it without reading the exploration.
 
-**Opinion:** Pólya, Lakatos and Gowers argue for presenting mathematics as it is found rather than in finished deductive order. Thurston argues that proofs serve human understanding. Leron proposes giving the main idea and key construction before the details. Morris states the step test above as a definition of a motivated proof. [S56, S60–S65](../sources/teaching.md#teaching-and-explanation) No controlled study was found that compares a motivated written proof with the same proof in deductive order. **Research, adjacent:** in a meta-analysis, assisted discovery outperformed other forms of instruction, while unassisted discovery did worse than explicit instruction. [S70–S72](../sources/teaching.md#teaching-and-explanation) Attempting a problem before instruction improves conceptual understanding on average when the instruction builds on those attempts. [S73, S74](../sources/teaching.md#teaching-and-explanation) Instruction first did better for highly interconnected material and for young learners. [S73, S75](../sources/teaching.md#teaching-and-explanation) These were classroom studies in which learners did the attempts themselves. Whether reading a staged exploration has the same effect is untested.
+**Opinion:** Pólya, Lakatos and Gowers argue for presenting mathematics as it is found rather than in finished deductive order. Thurston argues that proofs serve human understanding. Leron proposes giving the main idea and key construction before the details. Morris states the step test above as a definition of a motivated proof. [S56, S60–S65](../sources/teaching.md#teaching-and-explanation) No controlled study was found that compares a motivated written proof with the same proof in deductive order. **Research, adjacent:** in a meta-analysis, assisted discovery outperformed other forms of instruction, while unassisted discovery did worse than explicit instruction. [S70–S72](../sources/teaching.md#teaching-and-explanation) Attempting a problem before instruction improves conceptual understanding on average when the instruction builds on those attempts. [S73, S74](../sources/teaching.md#teaching-and-explanation) Instruction first did better for highly interconnected material and trended better for young learners. [S73, S75](../sources/teaching.md#teaching-and-explanation) These were classroom studies in which learners did the attempts themselves. Whether reading a staged exploration has the same effect is untested.
 
 Boundaries: readers liked generic proofs but did not understand them better, and heavy step-by-step commentary reduced later retention. In a case study of one lecture, the ideas the lecturer meant to convey did not reach the students interviewed. [S66, S67, S69](../sources/teaching.md#teaching-and-explanation) A natural guess can mislead, so mark dead ends as dead ends. [S64](../sources/teaching.md#teaching-and-explanation)
 
@@ -72,7 +72,7 @@ Give the hard step the most space. Keep routine steps short, but do not drop the
 
 ## E12. Give the reader something to do
 
-End with problems that need the idea, ordered by difficulty, or with questions that ask the reader to recall or apply it. **Research:** learners benefit from moving from worked examples to problems they solve themselves. Practice testing produced better retention after a delay than restudying. A review rates it among the most useful study techniques. [S35, S38, S39](../sources/teaching.md#teaching-and-explanation) That evidence measures retention of studied material. That linked practice problems improve learning from an article is an inference. Choose problems where the technique is a natural part of the solution.
+Where the reader is meant to apply the idea, end with problems that need it, ordered by difficulty, or with questions that ask the reader to recall or apply it. **Research:** learners benefit from moving from worked examples to problems they solve themselves. Practice testing produced better retention after a delay than restudying. A review rates it among the most useful study techniques. [S35, S38, S39](../sources/teaching.md#teaching-and-explanation) That evidence measures retention of studied material. That linked practice problems improve learning from an article is an inference. Choose problems where the technique is a natural part of the solution.
 
 ## E13. Check the text as a learner would read it
 
@@ -80,7 +80,7 @@ Before publishing, read as someone who knows the prerequisites but not the topic
 
 ## Questions, hints and feedback
 
-Exercises, automated feedback and worked solutions are teaching text too. E3 applies to them: a question shows what is known and what is sought, and each part addresses a need the goal creates.
+Exercises, automated feedback and worked solutions are teaching text too. E2 and E3 apply to them: a question shows what is known and what is sought, and each part addresses a need the goal creates.
 
 - Make the purpose of each step visible without making the decision the student should make. Clear instructions about the response format, notation or interface remain useful.
 - Check whether a student could follow every instruction and get full marks without engaging the idea the exercise is meant to develop. If so, reduce the scaffold or narrow the claim about what it assesses.
@@ -107,4 +107,4 @@ The bullets are **house judgment** from authoring course exercises, applying E3,
 | Background | Deferred or linked | Relevant reasons kept, decoration cut |
 | Review | Can they find the point and act? | Can they explain it and apply it? |
 
-House style rules from a consuming project, such as sentence length or punctuation, apply to teaching text only where they keep the meaning. A proof, derivation or worked example may need longer connected reasoning.
+A proof, derivation or worked example may need longer connected reasoning than a project's house style allows. If a house rule, such as sentence length or punctuation, would change the meaning, keep the meaning and record the exception the way the project's profile allows.

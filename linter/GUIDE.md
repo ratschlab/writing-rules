@@ -27,7 +27,7 @@ Numbers, defaults and promises must agree with the implementation.
 
 These are linter check IDs. Vale reports them as `Writing.R1` to `Writing.R9`.
 They reuse the numbers of the inherited rules in [REVIEW.md](REVIEW.md).
-The guides use P, E, D and S IDs instead.
+The guides use P, E, D, C and S IDs instead.
 
 R7's terms are `may`, `might`, `soon`, `shortly`, `a while` and `eventually`.
 Its number list is two through ten, twelve, twenty, thirty and sixty.

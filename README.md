@@ -23,7 +23,7 @@ Each principle states its basis with one or more of these labels:
 - **Standard:** a normative standard or specification, such as WCAG or Semantic Versioning.
 - **Practice:** maintained guidance from a style guide, vendor or project.
 - **Opinion:** the argued view of a named expert, without new data.
-- **House judgment:** our own choice where the sources do not decide. ENGINEERING calls it house guidance.
+- **House judgment:** our own choice where the sources do not decide. Variants such as house guidance, house workflow and house practice mean the same.
 
 A cited source supports the stated principle. It does not support every way to apply it. [Sources and limits](sources/README.md) explains how sources are selected. It also lists the sources by guide. Source IDs S1–S165 are stable.
 
@@ -31,7 +31,7 @@ A cited source supports the stated principle. It does not support every way to a
 
 The [linter](linter/README.md) is an optional helper. It runs Vale with a shared style package and checks a few surface patterns, such as vague error phrases and project terminology. Each project chooses which checks to enable. The linter cannot check the principles in the guides. They need a reader's judgment.
 
-`ratschlab/metagraph` runs the linter in CI. Other projects pin the guides without it.
+`ratschlab/metagraph` runs the linter in CI, and `AlgOptGroup/apxchol` runs it as a local check. Other projects pin the guides without it.
 
 ## License and authorship
 

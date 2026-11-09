@@ -39,8 +39,8 @@ Write one entry per difference:
 
 | Part | Content |
 |---|---|
-| Item | The shared ID it changes, such as P3, E5, D2 or linter check R7. A new local rule gets H1, H2 and so on. |
-| Change | Stricter, looser, off or added. |
+| Item | The shared ID it changes, such as P3, E5, D2, C1 or linter check R7. A new local rule gets H1, H2 and so on. |
+| Change | On, off, stricter, looser or added. |
 | Rule | The local rule, with exact limits and terms. |
 | Reason | Why the project differs, in one sentence. |
 
@@ -51,16 +51,16 @@ Example:
 
 This project follows the shared writing guides with these differences.
 
-- P3, stricter: no semicolons in prose. Split the sentence or use a list.
+- Check R1, on: no semicolons in prose. Split the sentence or use a list.
   Reason: many readers read English as a second language.
-- Check R2, stricter: no sentence over 30 words, 20 on average.
+- Check R2, stricter: a sentence over 25 words is an error.
   Reason: help text is read in a terminal.
-- Check R9, off. Reason: the docs speak for a named team.
+- Check R6, off. Reason: reference text names the outcome, not the actor.
 - H1, added: each `--help` option fits on 1 line.
   Reason: users scan options in an 80-column terminal.
 ```
 
-Shared IDs are P for [PRINCIPLES](PRINCIPLES.md), E for [TEACHING](TEACHING.md) and D for [STEWARDSHIP](STEWARDSHIP.md). [ENGINEERING](ENGINEERING.md) has no IDs, so cite its section heading. Write "check R7" for a [linter check](../linter/GUIDE.md), because the inherited rules in [REVIEW.md](../linter/REVIEW.md) reuse the same numbers. Local rules use H, so they never collide with a shared ID.
+Shared IDs are P for [PRINCIPLES](PRINCIPLES.md), E for [TEACHING](TEACHING.md), D for [STEWARDSHIP](STEWARDSHIP.md) and C for [LLM_CODE](LLM_CODE.md). [ENGINEERING](ENGINEERING.md) has no IDs, so cite its section heading. A local rule added to an ENGINEERING section gets an H number and names the section. Write "check R7" for a [linter check](../linter/GUIDE.md), because the inherited rules in [REVIEW.md](../linter/REVIEW.md) reuse the same numbers. Local rules use H, so they never collide with a shared ID.
 
 The profile states the rule. A checker enforces only the part a pattern can find. If the project runs the shared linter, set the matching checks in its `.vale.ini` and put local terms in its own R8 style, as the [linter guide](../linter/README.md) describes.
 
@@ -78,7 +78,7 @@ A skill is not required to read this guide. Establish the short repository entry
 
 Use positive goals, boundaries and a few contrasting examples. Avoid long inventories of banned words and generic instructions the agent can infer from the task. Anthropic recommends clear, appropriately scoped instructions and diverse canonical examples. This is vendor engineering guidance, not a controlled evaluation of our text workflow. [Context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
 
-Empirical evidence about repository context files is mixed and concerns coding tasks, not prose quality. Gloaguen et al.'s [Evaluating AGENTS.md](https://arxiv.org/abs/2602.11988) finds costs and benefits differ between generated and human instructions.
+Empirical evidence about repository context files is mixed and concerns coding tasks, not prose quality. Gloaguen et al.'s [Evaluating AGENTS.md](https://arxiv.org/abs/2602.11988v3) finds that context files did not generally improve task success and raised inference cost by over 20%, for both generated and developer-written files.
 [Lulla et al.](https://arxiv.org/abs/2601.20404v2) report efficiency benefits in their coding-task sample, while
 [Khatri](https://aclanthology.org/2026.realm-1.5/) reports no measurable correctness improvement in a smaller cross-agent study.
 Their tasks, metrics and settings differ; none evaluates this writing guide. Do not infer that adding more instructions improves outcomes. Test the smallest useful instruction set on actual writing tasks before expanding it.
@@ -91,12 +91,12 @@ No such comparison has been run for these guides.
 
 | Context | Starting point | Local adaptation |
 |---|---|---|
-| Technical docs / MetaGraph / apxchol | P1–P6 and P10 | Preserve algorithms, units, commands and domain vocabulary; test math/code exclusions. |
-| UI / Keylee | All principles | Add approved terminology and risk model; verify Go/templates/TSX extraction and rendered accessibility. |
-| Mathematical exposition / cp-algorithms | P1–P4, P6, P10 | Preserve proofs, notation and legitimate “we”/“may”; evaluate Markdown extensions. |
+| Technical docs for a library or command-line tool | P1–P6 and P10 | Preserve algorithms, units, commands and domain vocabulary; test math/code exclusions. |
+| Product interface | All principles | Add approved terminology and risk model; verify Go/templates/TSX extraction and rendered accessibility. |
+| Mathematical exposition | P1–P4, P6, P10 and TEACHING | Preserve proofs, notation and legitimate “we”/“may”; evaluate Markdown extensions. |
 | Legal/privacy notices | Clear structure and truthful scope | Jurisdiction-specific review; no automatic modal-verb or defined-term rewrites. |
 
-These are proposed starting points, not adopted policies for those projects. Keep exact budgets, terminology substitutions and punctuation preferences local, in a [house profile](#house-profile). Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [the source list](../sources/writing.md#existing-implementations) records the existing ecosystem.
+These are starting points. Each project records its own choices in a house profile. Keep exact budgets, terminology substitutions and punctuation preferences local, in a [house profile](#house-profile). Trial selected Google/Microsoft/proselint Vale rules before substituting implementations; [the source list](../sources/writing.md#existing-implementations) records the existing ecosystem.
 
 For engineering communication, also point to [ENGINEERING.md](ENGINEERING.md)
 and route to its relevant section from the local entry point. Do the same with
