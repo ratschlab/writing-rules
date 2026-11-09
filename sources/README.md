@@ -17,6 +17,7 @@ Source IDs are stable. Each guide links to the list that holds its sources.
 | List | IDs | Cited by |
 |---|---|---|
 | [Shared](shared.md) | S3–S5 | Several guides |
-| [Writing and engineering communication](writing.md) | S1, S2, S6–S30 | [PRINCIPLES](../guides/PRINCIPLES.md), [ENGINEERING](../guides/ENGINEERING.md), [ADOPTING](../guides/ADOPTING.md) |
+| [Writing and engineering communication](writing.md) | S1, S2, S6–S30, S111–S113 | [PRINCIPLES](../guides/PRINCIPLES.md), [ENGINEERING](../guides/ENGINEERING.md), [ADOPTING](../guides/ADOPTING.md) |
 | [Teaching](teaching.md) | S31–S80 | [TEACHING](../guides/TEACHING.md) |
 | [Stewardship](stewardship.md) | S81–S110 | [STEWARDSHIP](../guides/STEWARDSHIP.md) |
+| [LLM-written code](llm-code.md) | S114–S165 | [LLM_CODE](../guides/LLM_CODE.md) |

@@ -10,6 +10,7 @@ These guides help people and agents write documentation, interface text, enginee
 | [ENGINEERING](guides/ENGINEERING.md) | Agent replies, pull requests, reviews, commit messages, issues and release notes | By section |
 | [TEACHING](guides/TEACHING.md) | Algorithm articles, tutorials and other text meant to teach | E1–E13 |
 | [STEWARDSHIP](guides/STEWARDSHIP.md) | Deciding whether a project adds, keeps or removes a feature, option or API field | D1–D9 |
+| [LLM_CODE](guides/LLM_CODE.md) | Writing and reviewing code, tests and pull requests produced with LLM agents | C1–C10 |
 | [ADOPTING](guides/ADOPTING.md) | Pointing a repository's people and agents to these guides | |
 
 Pin a revision as a git submodule when you adopt the guides. [ADOPTING](guides/ADOPTING.md) shows a short entry point for `AGENTS.md`. It also shows how to record where a project differs from the guides.
@@ -24,7 +25,7 @@ Each principle states its basis with one or more of these labels:
 - **Opinion:** the argued view of a named expert, without new data.
 - **House judgment:** our own choice where the sources do not decide. ENGINEERING calls it house guidance.
 
-A cited source supports the stated principle. It does not support every way to apply it. [Sources and limits](sources/README.md) explains how sources are selected. It also lists the sources by guide. Source IDs S1–S110 are stable.
+A cited source supports the stated principle. It does not support every way to apply it. [Sources and limits](sources/README.md) explains how sources are selected. It also lists the sources by guide. Source IDs S1–S165 are stable.
 
 ## Linter
 

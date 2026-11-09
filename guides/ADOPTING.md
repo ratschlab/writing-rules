@@ -1,6 +1,6 @@
 # Adopting the guide for people and agents
 
-Start with the guide that fits the task. [PRINCIPLES.md](PRINCIPLES.md) covers documentation and interface text. [ENGINEERING.md](ENGINEERING.md) covers pull requests, reviews, commit messages and issues. [TEACHING.md](TEACHING.md) covers text meant to teach. [STEWARDSHIP.md](STEWARDSHIP.md) covers what a project adds, keeps and removes. The optional [linter](../linter/README.md) checks a few surface patterns. A repository selects its audience, vocabulary and house style explicitly. Adoption does not import another repository's approval, security or release policy.
+Start with the guide that fits the task. [PRINCIPLES.md](PRINCIPLES.md) covers documentation and interface text. [ENGINEERING.md](ENGINEERING.md) covers pull requests, reviews, commit messages and issues. [TEACHING.md](TEACHING.md) covers text meant to teach. [STEWARDSHIP.md](STEWARDSHIP.md) covers what a project adds, keeps and removes. [LLM_CODE.md](LLM_CODE.md) covers problems that recur in code written with LLM agents. The optional [linter](../linter/README.md) checks a few surface patterns. A repository selects its audience, vocabulary and house style explicitly. Adoption does not import another repository's approval, security or release policy.
 
 ## A small entry point
 
@@ -21,6 +21,8 @@ For tutorials, articles and other text meant to teach, also read
 `docs/writing/guides/TEACHING.md`.
 Before proposing a new feature, option, flag, endpoint or API field, read
 `docs/writing/guides/STEWARDSHIP.md`.
+Before submitting or reviewing code written with an LLM agent, run the checklist in
+`docs/writing/guides/LLM_CODE.md`.
 Our local terminology and development/approval instructions take precedence.
 Before preparing contributions, issues, reviews or commit messages, read the relevant section of
 `docs/writing/guides/ENGINEERING.md`.
